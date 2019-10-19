@@ -17,16 +17,16 @@ typedef struct SListNode{
     struct SListNode* next;
 }SList;
 
-void SListInit(SList* plist);//初始化
+void SListInit(SList** pplist);//初始化
 void SListDestory(SList* plist);//销毁
 SListNode* BuySListNode(SLDataType x);
-void SListPushFront(SList* plist, SLDataType x);//前插
-void SListPopFront(SList* plist);//前删
+void SListPushFront(SList** pplist, SLDataType x);//前插
+void SListPopFront(SList** pplist);//前删
 SListNode* SListFind(SList* plist, SLDataType x);
 // 在pos的后面进行插入
 void SListInsertAfter(SListNode* pos, SLDataType x); // 在pos的前面进行插入
 void SListEraseAfter(SListNode* pos);
-void SListRemove(SList* plist, SLDataType x);
+void SListRemove(SList** plist, SLDataType x);
 void SListPrint(SList* plist);
 
 #endif /* SList_hpp */
