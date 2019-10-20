@@ -7,7 +7,7 @@
 //
 
 #include "SList.hpp"
-#include <iostream>
+
 int main()
 {
     SList* head;
