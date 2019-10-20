@@ -7,11 +7,11 @@
 //
 
 #include "SList.hpp"
-void SListInit(SList** pplist){
+void SListInit(SList** pplist,SLDataType x){
     /**pplist=(SList*)malloc(sizeof(SList));
   (*pplist)->data=0;
     (*pplist)->next=NULL;*/
-  *pplist=BuySListNode((SLDataType)0);
+  *pplist=BuySListNode(x);
    
     
 }
@@ -23,7 +23,7 @@ void SListDestory(SList* plist){
     free(plist);
 }
 
-SListNode* BuySListNode(SLDataType x){
+SList* BuySListNode(SLDataType x){
     SList* ret=(SList*)malloc(sizeof(SList));
     ret->data=x;
     ret->next=NULL;
@@ -34,6 +34,7 @@ void SListPushFront(SList** pplist, SLDataType x){
     temp=BuySListNode(x);
     temp->next=*pplist;
     *pplist=temp;
+
 }
 void SListPopFront(SList** pplist){
     if(*pplist==NULL)

@@ -11,7 +11,7 @@
 int main()
 {
     SList* head;
-    SListInit(&head);
+    SListInit(&head,8);
     SListPushFront(&head, 7);
     SListPushFront(&head, 6);
     SListPushFront(&head, 5);
@@ -22,9 +22,9 @@ int main()
 //    SListPopFront(&head);
 //    SListPopFront(&head);
 //    SListPopFront(&head);
-//    SListInsertAfter(SListFind(head, 6), 9);
-    SListEraseAfter(SListFind(head, 4));
-    SListRemove(&head, 7);
+    SListInsertAfter(SListFind(head, 6), 9);
+//
+   SListRemove(&head, 6); SListEraseAfter(SListFind(head, 5));
     SListPrint(head);
 //    SListDestory(head);
 //    SListPrint(head);

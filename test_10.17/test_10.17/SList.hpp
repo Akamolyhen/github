@@ -17,7 +17,7 @@ typedef struct SListNode{
     struct SListNode* next;
 }SList;
 
-void SListInit(SList** pplist);//初始化
+void SListInit(SList** pplist,SLDataType x);//初始化
 void SListDestory(SList* plist);//销毁
 SListNode* BuySListNode(SLDataType x);
 void SListPushFront(SList** pplist, SLDataType x);//前插
