@@ -11,7 +11,7 @@
 int main()
 {
     SList* head;
-    SListInit(&head,8);
+    SListInit(&head);
     SListPushFront(&head, 7);
     SListPushFront(&head, 6);
     SListPushFront(&head, 5);

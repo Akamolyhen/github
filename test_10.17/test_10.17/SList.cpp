@@ -15,6 +15,9 @@ void SListInit(SList** pplist,SLDataType x){
    
     
 }
+void SListInit(SList** pplist){
+    *pplist=NULL;
+}
 void SListDestory(SList* plist){
     while(plist->next)
     {
