@@ -29,5 +29,7 @@ void SListInsertAfter(SListNode* pos, SLDataType x); // 在pos的前面进行插
 void SListEraseAfter(SListNode* pos);
 void SListRemove(SList** plist, SLDataType x);
 void SListPrint(SList* plist);
+void SListReverse(SList** pplist);
+void SListReverse2(SList** pplist);
 
 #endif /* SList_hpp */

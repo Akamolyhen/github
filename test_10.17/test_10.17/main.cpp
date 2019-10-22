@@ -26,8 +26,10 @@ int main()
 //
    SListRemove(&head, 6); SListEraseAfter(SListFind(head, 5));
     SListPrint(head);
-//    SListDestory(head);
-//    SListPrint(head);
+     SListReverse(&head);
+     SListPrint(head);
+     SListReverse2(&head);
+     SListPrint(head);
     return 0;
 }
 

@@ -91,4 +91,32 @@ void SListPrint(SList* plist){
     }
     printf("NULL\n");
 }
+void SListReverse(SList** pplist){
+    SList *head=*pplist;//此指针在每次循环中指向当前链表的头
+    SList *oldh=*pplist;//此指针在每次循环中始终指向链表原来的头，oldhead
+    SList *temp=head->next;//此指针指向每次循环中的头指针的下一个
+   while(temp)
+   { oldh->next=temp->next;//将temp架空
+    temp->next=head;//将temp前插，设为新头
+    head=temp;//换头
+    temp=oldh->next;//让temp进行下次循环删除的节点
+   }
+  *pplist=head;
+  
+}
 
+void SListReverse2(SList** pplist){
+    SList *pre= *pplist;
+    SList *cur=pre->next;
+    SList *next=cur->next;
+    pre->next=NULL;
+   while(next)
+   { cur->next=pre;
+    pre=cur;
+    cur=next;
+    if(next)
+    next=next->next;
+   }
+   *pplist=cur;
+   (*pplist)->next=pre;
+}
