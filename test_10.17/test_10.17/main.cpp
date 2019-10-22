@@ -29,6 +29,7 @@ int main()
      SListReverse(&head);
      SListPrint(head);
      SListReverse2(&head);
+     SListReverse2(&head);
      SListPrint(head);
     return 0;
 }
