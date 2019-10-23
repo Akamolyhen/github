@@ -29,8 +29,9 @@ void SListInsertAfter(SListNode* pos, SLDataType x); // 在pos的前面进行插
 void SListEraseAfter(SListNode* pos);
 void SListRemove(SList** plist, SLDataType x);
 void SListPrint(SList* plist);
-void SListReverse(SList** pplist);
-void SListReverse2(SList** pplist);
-SList* getintersectionNode(SList *headA,SList *headB);
+void SListReverse(SList** pplist);//链表倒序
+void SListReverse2(SList** pplist);//链表倒序
+SList* getintersectionNode(SList *headA,SList *headB);//判断两个链表是否有节点
 
+//04——46:32
 #endif /* SList_hpp */
