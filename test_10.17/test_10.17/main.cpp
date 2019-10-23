@@ -30,7 +30,7 @@ int main()
      SListPrint(head);
      SListReverse2(&head);
      SListReverse2(&head);
-     SListPrint(head)
+     SListPrint(head);
     return 0;
 }
 
