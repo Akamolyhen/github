@@ -8,9 +8,9 @@
 
 #include "SList.hpp"
 
-int main()
+/*int _main()
 {
-    SList* head;
+    SList* head,head1;
     SListInit(&head);
     SListPushFront(&head, 7);
     SListPushFront(&head, 6);
@@ -31,7 +31,34 @@ int main()
      SListReverse2(&head);
      SListReverse2(&head);
      SListPrint(head);
+
     return 0;
 }
-
-
+*/
+int main()
+{
+    SList *head,*head1;
+    SListInit(&head1);
+    SListInit(&head);
+    SListPushFront(&head, 7);
+    SListPushFront(&head, 6);
+    SListPushFront(&head, 5);
+    SListPushFront(&head, 4);
+    SListPushFront(&head1, 3);
+    SListPushFront(&head1, 2);
+    SListPushFront(&head1, 1);
+    SListPrint(head);
+    SListPrint(head1);
+    head1->next->next->next=head->next;
+    SList *ret=getintersectionNode(head,head1);
+    if(ret){
+        printf("%d\n",ret->data);
+    }
+    else
+    {
+        printf("NULL\n");
+    }
+    SListPrint(head);
+    SListPrint(head1);
+    
+}

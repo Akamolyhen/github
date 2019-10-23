@@ -8,7 +8,7 @@
 
 #ifndef SList_hpp
 #define SList_hpp
-
+#include<math.h>
 #include <stdio.h>
 #include<stdlib.h>
 typedef int SLDataType;
@@ -31,5 +31,6 @@ void SListRemove(SList** plist, SLDataType x);
 void SListPrint(SList* plist);
 void SListReverse(SList** pplist);
 void SListReverse2(SList** pplist);
+SList* getintersectionNode(SList *headA,SList *headB);
 
 #endif /* SList_hpp */

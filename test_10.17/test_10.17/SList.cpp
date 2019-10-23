@@ -120,3 +120,32 @@ void SListReverse2(SList** pplist){
    *pplist=cur;
    (*pplist)->next=pre;
 }
+
+SList* getintersectionNode(SList *headA,SList *headB){
+    int lenA=0;
+    int lenB=0;
+    int gap;
+    SList *cur;
+    SList *longer=headA;
+    SList *shorter=headB;
+    for(cur=headA;cur;cur=cur->next){
+        lenA++;
+    }
+    for(cur=headB;cur;cur=cur->next){
+        lenB++;
+    }
+    gap=abs(lenA-lenB);
+    if(lenA<lenB){
+        longer=headB;
+        shorter=headA;
+    }
+    for(int i=0;i<gap;i++){
+        longer=longer->next;
+    }
+    for(;longer&&shorter;longer=longer->next,shorter=shorter->next){
+        if(longer==shorter){
+            return longer;
+        }
+    }
+    return NULL;
+}
