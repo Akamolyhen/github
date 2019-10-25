@@ -4,16 +4,16 @@ void menu()
     printf("*********************************************\n");
     printf("***************  WELCOME  *******************\n");
     printf("*********************************************\n");
-    printf("*******   1.add            2.dele    ********\n");//添加学生信息   删除学生信息
-    printf("*******   3.search         4.show    ********\n");//查询学生信息  查看学生信息
-    printf("*******   5.modifi         6.sort    ********\n");//修改学生信息   排序学生信息
+    printf("*******   1.add            2.dele    ********\n");//添加图书信息   删除图书信息
+    printf("*******   3.search         4.show    ********\n");//查询图书信息  查看图书信息
+    printf("*******   5.modifi         6.sort    ********\n");//修改图书信息   排序图书信息
     printf("*******           0.esc              ********\n");//  退出程序
     printf("*********************************************\n");
 }
 void test()
 {
     contact my_contact = { 0 };
-    init_contact(&my_contact);//初始化学生信息；
+    init_contact(&my_contact);//初始化图书信息；
     int input = 0;
     do
     {
@@ -23,22 +23,22 @@ void test()
         switch (input)
         {
             case add:
-                add_contact(&my_contact);//添加学生信息
+                add_contact(&my_contact);//添加图书信息
                 break;
             case dele:
-                dele_contact(&my_contact);//删除学生信息
+                dele_contact(&my_contact);//删除图书信息
                 break;
             case search:
-                serch_contact(&my_contact);//查询学生信息
+                serch_contact(&my_contact);//查询图书信息
                 break;
             case show:
-                show_contact(&my_contact);//查看学生信息
+                show_contact(&my_contact);//查看图书信息
                 break;
             case modifi:
-                modifi_contact(&my_contact);//修改学生信息
+                modifi_contact(&my_contact);//修改图书信息
                 break;
             case sort:
-                sort_contact(&my_contact);//排序学生信息
+                sort_contact(&my_contact);//排序图书信息
                 break;
             case esc:
                 save_contact(&my_contact);//把数据保存到文件中
