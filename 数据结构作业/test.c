@@ -18,7 +18,7 @@ void test()
     do
     {
         menu();
-        printf("请选择—>");
+        printf("请选择功能—>");
         scanf("%d", &input);
         switch (input)
         {
