@@ -1,17 +1,15 @@
 //
 //  main.cpp
-//  实验4
+//  test
 //
-//  Created by 恶龙咆哮 on 2019/10/21.
+//  Created by 恶龙咆哮 on 2019/10/27.
 //  Copyright © 2019 秦伟钦. All rights reserved.
 //
-
 #define maxsize 100
 #define ok 1
 #define error 0
 #define overflow -2
 #include<iostream>
-#include<stdio.h>
 #include <stdlib.h>
 
 typedef int status;
@@ -34,7 +32,7 @@ status InitQueue(SqQueue Q){
 status EnQueue(SqQueue Q,Person e){
     if((Q.rear+1)%maxsize==Q.fronter){
       printf("队列已满！\n");
-      return error;    
+      return error;
       }
     Q.base[Q.rear]=e;
     Q.rear=(Q.rear+1)%maxsize;
@@ -104,7 +102,7 @@ int main(){
     Person dancer[5];
     InitQueue(party);
     printf("%d\n",QueueEmpty(party));
-    for(int i=0;i<5;i++){   
+    for(int i=0;i<5;i++){
        scanf("%c",&dancer[i].sex);
        
     }

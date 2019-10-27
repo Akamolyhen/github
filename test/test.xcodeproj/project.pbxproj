@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		809EBBCD235DF3510050C981 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 809EBBCC235DF3510050C981 /* main.cpp */; };
+		80FD676A236584AF008F2E7C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 80FD6769236584AF008F2E7C /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		809EBBC7235DF3510050C981 /* CopyFiles */ = {
+		80FD6764236584AF008F2E7C /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -23,12 +23,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		809EBBC9235DF3510050C981 /* 实验4 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "实验4"; sourceTree = BUILT_PRODUCTS_DIR; };
-		809EBBCC235DF3510050C981 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		80FD6766236584AF008F2E7C /* test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = test; sourceTree = BUILT_PRODUCTS_DIR; };
+		80FD6769236584AF008F2E7C /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		809EBBC6235DF3510050C981 /* Frameworks */ = {
+		80FD6763236584AF008F2E7C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -38,65 +38,65 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		809EBBC0235DF3510050C981 = {
+		80FD675D236584AF008F2E7C = {
 			isa = PBXGroup;
 			children = (
-				809EBBCB235DF3510050C981 /* 实验4 */,
-				809EBBCA235DF3510050C981 /* Products */,
+				80FD6768236584AF008F2E7C /* test */,
+				80FD6767236584AF008F2E7C /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		809EBBCA235DF3510050C981 /* Products */ = {
+		80FD6767236584AF008F2E7C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				809EBBC9235DF3510050C981 /* 实验4 */,
+				80FD6766236584AF008F2E7C /* test */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		809EBBCB235DF3510050C981 /* 实验4 */ = {
+		80FD6768236584AF008F2E7C /* test */ = {
 			isa = PBXGroup;
 			children = (
-				809EBBCC235DF3510050C981 /* main.cpp */,
+				80FD6769236584AF008F2E7C /* main.cpp */,
 			);
-			path = "实验4";
+			path = test;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		809EBBC8235DF3510050C981 /* 实验4 */ = {
+		80FD6765236584AF008F2E7C /* test */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 809EBBD0235DF3510050C981 /* Build configuration list for PBXNativeTarget "实验4" */;
+			buildConfigurationList = 80FD676D236584AF008F2E7C /* Build configuration list for PBXNativeTarget "test" */;
 			buildPhases = (
-				809EBBC5235DF3510050C981 /* Sources */,
-				809EBBC6235DF3510050C981 /* Frameworks */,
-				809EBBC7235DF3510050C981 /* CopyFiles */,
+				80FD6762236584AF008F2E7C /* Sources */,
+				80FD6763236584AF008F2E7C /* Frameworks */,
+				80FD6764236584AF008F2E7C /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "实验4";
-			productName = "实验4";
-			productReference = 809EBBC9235DF3510050C981 /* 实验4 */;
+			name = test;
+			productName = test;
+			productReference = 80FD6766236584AF008F2E7C /* test */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		809EBBC1235DF3510050C981 /* Project object */ = {
+		80FD675E236584AF008F2E7C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1110;
 				ORGANIZATIONNAME = "秦伟钦";
 				TargetAttributes = {
-					809EBBC8235DF3510050C981 = {
+					80FD6765236584AF008F2E7C = {
 						CreatedOnToolsVersion = 11.1;
 					};
 				};
 			};
-			buildConfigurationList = 809EBBC4235DF3510050C981 /* Build configuration list for PBXProject "实验4" */;
+			buildConfigurationList = 80FD6761236584AF008F2E7C /* Build configuration list for PBXProject "test" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -104,29 +104,29 @@
 				en,
 				Base,
 			);
-			mainGroup = 809EBBC0235DF3510050C981;
-			productRefGroup = 809EBBCA235DF3510050C981 /* Products */;
+			mainGroup = 80FD675D236584AF008F2E7C;
+			productRefGroup = 80FD6767236584AF008F2E7C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				809EBBC8235DF3510050C981 /* 实验4 */,
+				80FD6765236584AF008F2E7C /* test */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		809EBBC5235DF3510050C981 /* Sources */ = {
+		80FD6762236584AF008F2E7C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				809EBBCD235DF3510050C981 /* main.cpp in Sources */,
+				80FD676A236584AF008F2E7C /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		809EBBCE235DF3510050C981 /* Debug */ = {
+		80FD676B236584AF008F2E7C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -184,7 +184,7 @@
 			};
 			name = Debug;
 		};
-		809EBBCF235DF3510050C981 /* Release */ = {
+		80FD676C236584AF008F2E7C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -235,7 +235,7 @@
 			};
 			name = Release;
 		};
-		809EBBD1235DF3510050C981 /* Debug */ = {
+		80FD676E236584AF008F2E7C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -243,7 +243,7 @@
 			};
 			name = Debug;
 		};
-		809EBBD2235DF3510050C981 /* Release */ = {
+		80FD676F236584AF008F2E7C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -254,25 +254,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		809EBBC4235DF3510050C981 /* Build configuration list for PBXProject "实验4" */ = {
+		80FD6761236584AF008F2E7C /* Build configuration list for PBXProject "test" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				809EBBCE235DF3510050C981 /* Debug */,
-				809EBBCF235DF3510050C981 /* Release */,
+				80FD676B236584AF008F2E7C /* Debug */,
+				80FD676C236584AF008F2E7C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		809EBBD0235DF3510050C981 /* Build configuration list for PBXNativeTarget "实验4" */ = {
+		80FD676D236584AF008F2E7C /* Build configuration list for PBXNativeTarget "test" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				809EBBD1235DF3510050C981 /* Debug */,
-				809EBBD2235DF3510050C981 /* Release */,
+				80FD676E236584AF008F2E7C /* Debug */,
+				80FD676F236584AF008F2E7C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 809EBBC1235DF3510050C981 /* Project object */;
+	rootObject = 80FD675E236584AF008F2E7C /* Project object */;
 }
