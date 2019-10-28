@@ -1,19 +1,14 @@
-//
-//  main.cpp
-//  test
-//
-//  Created by 恶龙咆哮 on 2019/10/27.
-//  Copyright © 2019 秦伟钦. All rights reserved.
-//
 #define maxsize 100
-#define ok 1
-#define error 0
-#define overflow -2
-#include<iostream>
+#define OK 1
+#define ERROR 0
+#define OVERFLOW -2
+#include <iostream>
 #include <stdlib.h>
-
+using namespace std;
 typedef int status;
-typedef struct {
+using namespace std;
+
+ typedef struct {
     char name[20];
     char sex;
 }Person;
@@ -25,24 +20,24 @@ typedef struct {
 status InitQueue(SqQueue Q){
     Q.base=new Person[maxsize];
     if(!Q.base)
-        exit(overflow);
+        exit(OVERFLOW);
     Q.fronter=Q.rear=0;
-    return ok;
+    return OK;
 }
 status EnQueue(SqQueue Q,Person e){
     if((Q.rear+1)%maxsize==Q.fronter){
       printf("队列已满！\n");
-      return error;
+      return ERROR;    
       }
     Q.base[Q.rear]=e;
     Q.rear=(Q.rear+1)%maxsize;
-    return ok;
+    return OK;
 }
 
 Person DeQueue(SqQueue Q,Person e){
     if(Q.rear==Q.fronter){
         printf("队列为空！\n");
-        exit(error);
+        exit(ERROR);
     }
     e=Q.base[Q.fronter];
     Q.fronter=(Q.fronter-1)%maxsize;
@@ -65,7 +60,7 @@ Person GetHead(SqQueue Q){
     return Q.base[Q.fronter];
     else
     {
-        exit(error);
+        exit(ERROR);
     }
     
 }
@@ -98,13 +93,12 @@ void DancePartner(Person dancer[],int num){
     }
 }
 int main(){
-    SqQueue party;
+    SqQueue *party;
     Person dancer[5];
-    InitQueue(party);
-    printf("%d\n",QueueEmpty(party));
+    InitQueue(*party);
+    printf("%d\n",QueueEmpty(*party));
     for(int i=0;i<5;i++){
-       scanf("%c",&dancer[i].sex);
-       
+        cin>>dancer[i].name>>dancer[i].sex;
     }
     DancePartner(dancer,5);
     return 0;
