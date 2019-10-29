@@ -17,14 +17,14 @@ typedef struct {
     int fronter;
     int rear;
 }SqQueue;
-status InitQueue(SqQueue Q){
+status InitQueue(SqQueue &Q){
     Q.base=new Person[maxsize];
     if(!Q.base)
         exit(OVERFLOW);
     Q.fronter=Q.rear=0;
     return OK;
 }
-status EnQueue(SqQueue Q,Person e){
+status EnQueue(SqQueue &Q,Person e){
     if((Q.rear+1)%maxsize==Q.fronter){
       printf("队列已满！\n");
       return ERROR;    
@@ -34,7 +34,7 @@ status EnQueue(SqQueue Q,Person e){
     return OK;
 }
 
-Person DeQueue(SqQueue Q,Person e){
+Person DeQueue(SqQueue &Q,Person e){
     if(Q.rear==Q.fronter){
         printf("队列为空！\n");
         exit(ERROR);
@@ -93,10 +93,10 @@ void DancePartner(Person dancer[],int num){
     }
 }
 int main(){
-    SqQueue *party;
+    SqQueue party;
     Person dancer[5];
-    InitQueue(*party);
-    printf("%d\n",QueueEmpty(*party));
+    InitQueue(party);
+    printf("%d\n",QueueEmpty(party));
     for(int i=0;i<5;i++){
         cin>>dancer[i].name>>dancer[i].sex;
     }
