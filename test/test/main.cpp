@@ -1,4 +1,5 @@
 #define maxsize 100
+#define dacernum 5
 #define OK 1
 #define ERROR 0
 #define OVERFLOW -2
@@ -34,14 +35,14 @@ status EnQueue(SqQueue &Q,Person e){
     return OK;
 }
 
-Person DeQueue(SqQueue &Q,Person e){
+void DeQueue(SqQueue &Q){
     if(Q.rear==Q.fronter){
         printf("队列为空！\n");
         exit(ERROR);
     }
-    e=Q.base[Q.fronter];
-    Q.fronter=(Q.fronter-1)%maxsize;
-    return e;
+
+    Q.fronter=(Q.fronter+1)%maxsize;
+
     
 }
 
@@ -67,22 +68,26 @@ Person GetHead(SqQueue Q){
 void DancePartner(Person dancer[],int num){
     SqQueue Mdancer,Fdancer;
     Person p;
+    Person e;
     InitQueue(Mdancer);
     InitQueue(Fdancer);
     for(int i=0;i<num;i++){
         p=dancer[i];
-        if(p.sex=='F')
+        if(p.sex=='F'||p.sex=='f')
         EnQueue(Fdancer,p);
         else
         EnQueue(Mdancer,p);
     }
-    printf("舞蹈搭档是：");
+   printf("舞蹈搭档是：");
     while(!QueueEmpty(Fdancer)&&!QueueEmpty(Mdancer)){
-        DeQueue(Fdancer,p);
-        printf("%s",p.name);
-        DeQueue(Mdancer,p);
-        printf("%s",p.name);
+        e=GetHead(Fdancer);
+        cout<<e.name<<"\t";
+        DeQueue(Fdancer);
+        e=GetHead(Mdancer);
+        cout<<e.name<<endl;
+        DeQueue(Mdancer);
     }
+
     if(!QueueEmpty(Fdancer)){
         p=GetHead(Fdancer);
         printf("第一个将会获得舞伴的女生是：%s\n",p.name);
@@ -93,12 +98,19 @@ void DancePartner(Person dancer[],int num){
     }
 }
 int main(){
-    SqQueue party;
-    Person dancer[5];
-    InitQueue(party);
-    printf("%d\n",QueueEmpty(party));
+    
+    Person dancer[dacernum];
+    
     for(int i=0;i<5;i++){
-        cin>>dancer[i].name>>dancer[i].sex;
+        cin>>dancer[i].name;
+        do
+        {
+           cin>>dancer[i].sex;
+           if(dancer[i].sex!='F'&&dancer[i].sex!='M'&&dancer[i].sex!='f'&&dancer[i].sex!='m')
+           cout<<"性别有误请重输性别！"<<endl;
+        } while (dancer[i].sex!='F'&&dancer[i].sex!='M'&&dancer[i].sex!='f'&&dancer[i].sex!='m');
+       if(i<4)
+       cout<<"下一位舞者信息："<<endl;
     }
     DancePartner(dancer,5);
     return 0;
