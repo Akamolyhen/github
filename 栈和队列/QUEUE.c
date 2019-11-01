@@ -23,5 +23,5 @@ void QueuePop(Queue* p){
     if(p->size==0){
         return;
     }
-    p->front
+    p->front=
 }
