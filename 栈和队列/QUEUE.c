@@ -24,4 +24,5 @@ void QueuePop(Queue* p){
         return;
     }
     p->front=p->rear;
+    IOPOL_TYPE_VFS_ATIME_UPDATES
 }
