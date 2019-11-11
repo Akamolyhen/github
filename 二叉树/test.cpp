@@ -96,14 +96,87 @@ BinTree creatBinTree_2(){
     }
 }
 void DelTree(BinTree root){
-    
+    if(root!=NULL){
+        DelTree(root->lchild);
+        DelTree(root->rchild);
+    }
+    free(root);
 }
-void display(BinTree root);//显示树形结构
+void display(BinTree root){
+    if(root!=NULL){
+        cout<<root->elem;
+        if(root->lchild!=NULL||root->rchild!=NULL){
+            cout<<'(';
+            display(root->lchild);
+        }
+        if(root->rchild!=NULL){
+            cout<<',';
+            display(root->rchild);
+            cout<<')';
+        }
+    }
+}
 void preOrder(BinTree root);
 void inOrder(BinTree root);
 void postOrder(BinTree root);
 int maxDepth(BinTree root);//求二叉树的最大深度
-BinTree parent(BinTree bt,char NodeName);//查询某个结点的父结点
-BinTree Search(BinTree bt,char NodeName);//查询某个结点
-int Nodes(BinTree bt);//统计二叉树中的结点个数
-void DispLeaf(BinTree bt);//输出二叉树中的所有叶子结点
+
+
+
+
+BinTree parent(BinTree bt,char NodeName){
+    if(bt)
+    {
+        if(bt->elem==NodeName){
+            cout<<"该结点为根结点"<<endl;
+            return NULL;        
+        }
+    }
+    if((bt->lchild->elem==NodeName&&bt->lchild!=NULL)||(bt->rchild->elem==NodeName&&bt->rchild!=NULL))
+    return bt;
+    else{
+        BTNode* tempP=NULL;
+        if(tempP=parent(bt->lchild,NodeName))
+        return tempP;
+        if(tempP=parent(bt->rchild,NodeName))
+        return tempP;
+    }
+    return NULL;
+}
+BinTree Search(BinTree bt,char NodeName){
+    BinTree p;
+    if(bt){
+        if(bt->elem==NodeName)
+        return bt;
+        if(bt->lchild){
+            p=Search(bt->lchild,NodeName);
+            if(p)
+            return p;
+        }
+        if(bt->rchild){
+            p=Search(bt->rchild,NodeName);
+            if(p)
+            return p;
+        }
+    }
+    return NULL;
+}
+int Nodes(BinTree bt){
+    if(bt==NULL)
+    return 0;
+    else
+    {
+        return Nodes(bt->lchild)+Nodes(bt->rchild)+1;
+    }
+    
+}
+void DispLeaf(BinTree bt){
+    if(bt!=NULL)
+    {
+        if(bt->lchild==NULL&&bt->rchild==NULL)
+        cout<<bt->elem<<'.';
+        DispLeaf(bt->lchild);
+        DispLeaf(bt->rchild);
+    
+    }
+}
