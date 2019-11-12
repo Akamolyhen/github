@@ -48,11 +48,11 @@ int main(){
     cout<<name<<"的父结点名为："<<nn->elem<<endl;
     nn=Search(root,name);
     if(nn->lchild)
-        cout<<name<<"的左孩子为："<<nn->lchild<<endl;
+        cout<<name<<"的左孩子为："<<nn->lchild->elem<<endl;
         else
         cout<<"没有左孩子"<<endl;
     if(nn->rchild)
-        cout<<name<<"的右孩子为："<<nn->rchild<<endl;
+        cout<<name<<"的右孩子为："<<nn->rchild->elem<<endl;
         else
         cout<<"没有右孩子"<<endl;
         cout<<"此二叉树的结点数为：";
@@ -94,6 +94,7 @@ BinTree creatBinTree_2(){
         bt->lchild=creatBinTree_2();
         bt->rchild=creatBinTree_2();
     }
+    return bt;
 }
 void DelTree(BinTree root){
     if(root!=NULL){
@@ -116,10 +117,52 @@ void display(BinTree root){
         }
     }
 }
-void preOrder(BinTree root);
-void inOrder(BinTree root);
-void postOrder(BinTree root);
-int maxDepth(BinTree root);//求二叉树的最大深度
+void preOrder(BinTree root){
+   if(root!=NULL){
+       cout<<root->elem;
+       preOrder(root->lchild);
+       preOrder(root->rchild);
+   }
+}
+void inOrder(BinTree root){
+    if(root!=NULL){
+       
+       preOrder(root->lchild);
+       cout<<root->elem;
+       preOrder(root->rchild);
+   }
+}
+void postOrder(BinTree root){
+    if(root!=NULL){
+       
+       preOrder(root->lchild);
+       
+       preOrder(root->rchild);
+       cout<<root->elem;
+   }
+}
+
+
+
+
+
+
+
+int maxDepth(BinTree root){
+    if(root==NULL)
+    return 0;
+    else{
+         int m=maxDepth(root->lchild);
+         int n=maxDepth(root->rchild);
+         if(m>n)
+    return (m+1);
+    else
+        return n+1;
+    
+    }
+    
+
+}
 
 
 
@@ -136,9 +179,9 @@ BinTree parent(BinTree bt,char NodeName){
     return bt;
     else{
         BTNode* tempP=NULL;
-        if(tempP=parent(bt->lchild,NodeName))
+        if(tempP==parent(bt->lchild,NodeName))
         return tempP;
-        if(tempP=parent(bt->rchild,NodeName))
+        if(tempP==parent(bt->rchild,NodeName))
         return tempP;
     }
     return NULL;
