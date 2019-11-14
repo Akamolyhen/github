@@ -62,7 +62,7 @@ int main()
 		//GreatCommonDivisor();
 	//****判断是否为闰年****
 		//IsLeapYear();
-	//****计算日期****
+	//****计算日期***
 		//Date_of_calculation();
 	return 0;
 }
