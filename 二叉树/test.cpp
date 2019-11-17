@@ -219,7 +219,7 @@ void DispLeaf(BinTree bt){
         if(bt->lchild==NULL&&bt->rchild==NULL)
         cout<<bt->elem<<'.';
         DispLeaf(bt->lchild);
-        DispLeaf(bt->rchild)
+        DispLeaf(bt->rchild);
     
     }
 }
