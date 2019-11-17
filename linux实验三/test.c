@@ -58,11 +58,45 @@ int Date_of_calculation()
 int main()
 {
 	pid_t child1,child2,child3;
-	//****计算最大公约数****
-		//GreatCommonDivisor();
-	//****判断是否为闰年****
-		//IsLeapYear();
-	//****计算日期***
-		//Date_of_calculation();
+	child1=fork();
+	if(child1<0)
+	{
+		perror("fork");
+		return 0;
+	}
+	else if(child1==0){
+		//child1
+		GreatCommonDivisor();
+	}
+	else{
+		printf("最大公约数！\n");
+	}
+	child2=fork();
+	if(child2<0)
+	{
+		perror("fork");
+		return 0;
+	}
+	else if(child2==0){
+		//child2
+		IsLeapYear();
+	}
+	else{
+		printf("是否闰年！\n");
+	}
+	child3=fork();
+	if(child3<0)
+	{
+		perror("fork");
+		return 0;
+	}
+	else if(child3==0){
+		//child3
+		Date_of_calculation();
+	}
+	else{
+		printf("计算时间！\n");
+	}
+	
 	return 0;
 }
