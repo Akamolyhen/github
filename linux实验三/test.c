@@ -62,41 +62,37 @@ int main()
 	if(child1<0)
 	{
 		perror("fork");
-		return 0;
 	}
 	else if(child1==0){
-		//child1
+		printf("我是执行最大公约数！\n");
 		GreatCommonDivisor();
 	}
 	else{
-		printf("最大公约数！\n");
-	}
-	child2=fork();
-	if(child2<0)
+		child2=fork();
+		if(child2<0)
 	{
 		perror("fork");
-		return 0;
 	}
 	else if(child2==0){
-		//child2
+		printf("我是执行是否为闰年！\n");
 		IsLeapYear();
 	}
 	else{
-		printf("是否闰年！\n");
-	}
-	child3=fork();
-	if(child3<0)
+		child3=fork();
+		if(child3<0)
 	{
 		perror("fork");
-		return 0;
 	}
 	else if(child3==0){
-		//child3
+		printf("我是执行计算时间！\n");
 		Date_of_calculation();
 	}
 	else{
-		printf("计算时间！\n");
+		printf("程序结束！\n");
+		
 	}
-	
+	}
+	}
 	return 0;
+
 }
