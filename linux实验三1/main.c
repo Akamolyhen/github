@@ -18,6 +18,7 @@ int main()
 	{
 		execl("./doc", "./doc", "NULL");
 		sleep(200);
+		exit(0);
 	}
 	else
 	{
@@ -32,6 +33,7 @@ int main()
 	{
 		execl("./ily", "./ily", "NULL");
 		sleep(200);	
+		exit(0);
 	}
 	else
 	{
@@ -46,14 +48,15 @@ int main()
 	{
 		execl("./gcd", "./gcd", "NULL");
 		sleep(200);
+		exit(0);
 	}
 	else
 	{
 		wait(NULL);
 	}
 	
-	waitpid(p1, &status1, 0);
-	waitpid(p2, &status2, 0);
-	waitpid(p3, &status3, 0);
+	//waitpid(p1, &status1, 0);
+	//waitpid(p2, &status2, 0);
+	//waitpid(p3, &status3, 0);
 	return 0;
 }
