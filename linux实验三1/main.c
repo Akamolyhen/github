@@ -11,7 +11,7 @@ int main()
 	p1 = fork();
 	if (p1 < 0)
 	{
-		printf("Error creating subprocess!\n");
+		perror("fork");
 		return -1;
 	}
 	else if(p1 == 0)
@@ -21,14 +21,12 @@ int main()
 	}
 	else
 	{
-		printf("This is a parent process!\n");
 		wait(NULL);
 	}
 	p2 = fork();
 	if (p2 < 0)
 	{
-		printf("Error creating subprocess!\n");
-		
+		perror("fork");
 	}
 	else if (p2 == 0)
 	{
@@ -37,13 +35,12 @@ int main()
 	}
 	else
 	{
-		printf("This is a parent process!\n");
 		wait(NULL);
 	}
 	p3 = fork();
 	if (p3 < 0)
 	{
-		printf("Error creating subprocess!\n");
+		perror("fork");
 	}
 	else if (p3 == 0)
 	{
@@ -52,7 +49,6 @@ int main()
 	}
 	else
 	{
-		printf("This is a parent process!\n");
 		wait(NULL);
 	}
 	

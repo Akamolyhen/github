@@ -66,8 +66,10 @@ int main()
 	else if(child1==0){
 		printf("我是执行最大公约数！\n");
 		GreatCommonDivisor();
+		exit(0);
 	}
 	else{
+		wait(NULL);
 		child2=fork();
 		if(child2<0)
 	{
@@ -76,8 +78,10 @@ int main()
 	else if(child2==0){
 		printf("我是执行是否为闰年！\n");
 		IsLeapYear();
+		exit(0);
 	}
 	else{
+		wait(NULL);
 		child3=fork();
 		if(child3<0)
 	{
@@ -86,8 +90,10 @@ int main()
 	else if(child3==0){
 		printf("我是执行计算时间！\n");
 		Date_of_calculation();
+		exit(0);
 	}
 	else{
+		wait(NULL);
 		printf("程序结束！\n");
 		
 	}
