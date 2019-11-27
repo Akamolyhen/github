@@ -1,5 +1,6 @@
 #include<iostream>
 #include<string.h>
+#include"myfile.h"
 #define  UINT_iMAX 10000 
 using namespace std;
  
