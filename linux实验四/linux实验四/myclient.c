@@ -29,7 +29,7 @@ void *SendMessage(void *msg)
 		MySendMessage->_Sockfd = sockfd;
 		fgets(SendBuffer + sizeof(struct Message), MAX_MESSAGE_SIZE - sizeof(struct Message), stdin);
 
-		if (strncmp(SendBuffer + sizeof(struct Message), "end", 3) == 0)
+		if (strncmp(SendBuffer + sizeof(struct Message), "end", 3) == 0)//比较两个字符串的前n位
 		{   
 			MySendMessage->_Flag = 1;
 			if (send(sockfd, SendBuffer, MAX_MESSAGE_SIZE, 0) == -1)

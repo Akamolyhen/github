@@ -59,7 +59,13 @@ void SendToClient(char *buffer, int dealfd)
 		if (send(ClientArray[i], buffer, MAX_MESSAGE_SIZE, 0) == -1)
 		{
 			printf("Message sending failed\n");
-		}
+		}/*第一个参数指定发送端套接字描述符；
+
+第二个参数指明一个存放应用程序要发送数据的缓冲区；
+
+第三个参数指明实际要发送的数据的字节数；
+
+第四个参数一般置0。*/
 	}
 	bzero(buffer, MAX_MESSAGE_SIZE);
 }
@@ -67,7 +73,13 @@ void *RecvMessageFromServer(void *recvfd)
 {
 	int dealfd = *(int *)recvfd;
 	while (1) {
-		if (recv(dealfd, RecvBuffer, MAX_MESSAGE_SIZE, 0) == -1) 
+		if (recv(dealfd, RecvBuffer, MAX_MESSAGE_SIZE, 0) == -1) /*第一个参数指定接收端套接字描述符；
+
+第二个参数指明一个缓冲区，该缓冲区用来存放recv函数接收到的数据；
+
+第三个参数指明buf的长度；
+
+第四个参数一般置0。*/
 		{
 			printf("Message reception failed\n");
 		}
@@ -135,9 +147,12 @@ int main(int argc, char const *argv[])
 		exit(0);
 	}
 
-	serveraddr.sin_family = AF_INET;
-	serveraddr.sin_port = htons(Local_Port);
-	serveraddr.sin_addr.s_addr = inet_addr(Local_IP);
+	serveraddr.sin_family = AF_INET;//Internet协议
+	serveraddr.sin_port = htons(Local_Port);/*htons 把unsigned short类型从主机序转换到网络序
+htonl 把unsigned long类型从主机序转换到网络序
+ntohs 把unsigned short类型从网络序转换到主机序
+ntohl 把unsigned long类型从网络序转换到主机序*/
+	serveraddr.sin_addr.s_addr = inet_addr(Local_IP);//将点分形式的ip地址转换成无符号长整型
 
 	if (bind(serverfd, (struct sockaddr *)&serveraddr, sizeof(struct sockaddr)) == -1)
 	{
@@ -178,7 +193,7 @@ int main(int argc, char const *argv[])
 		{
 			printf("FAILED\n");
 			exit(0);
-		}
+		}//第一个参数为指向线程标识符的指针。第二个参数用来设置线程属性。第三个参数是线程运行函数的起始地址。最后一个参数是运行函数的参数
 	}
 	close(serverfd);
 	return 0;
