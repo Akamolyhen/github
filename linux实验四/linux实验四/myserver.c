@@ -12,7 +12,7 @@
 #define  Local_Port  8888
 #define MAX_MESSAGE_SIZE 1024
 #define MAX_CONNECT_NUM 5
-char *Local_IP = "192.168.0.232";//
+char *Local_IP = "192.168.43.140";//
 char SendBuffer[MAX_MESSAGE_SIZE];
 char RecvBuffer[MAX_MESSAGE_SIZE];
 

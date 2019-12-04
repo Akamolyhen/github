@@ -10,7 +10,7 @@
 
 #define MAX_MESSAGE_SIZE 1024
 #define Server_Port 8888
-char *Server_IP = "192.168.0.232";
+char *Server_IP = "192.168.43.140";
 char SendBuffer[MAX_MESSAGE_SIZE];
 char RecvBuffer[MAX_MESSAGE_SIZE];
 

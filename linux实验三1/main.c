@@ -16,7 +16,7 @@ int main()
 	}
 	else if(p1 == 0)
 	{
-		execl("./doc", "./doc", "NULL");
+		execlp("doc", "doc", NULL);
 		sleep(200);
 		exit(0);
 	}
