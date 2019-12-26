@@ -129,10 +129,10 @@ void draw_snake_food()	//画蛇,食物
 	MOVETO(snake_head->data.x,snake_head->data.y);		//用◆代替蛇头
 	printf("◆");
 	printf("\n");
-	while (ps->next != NULL)			//用≈代表蛇身
+	while (ps->next != NULL)			//用*代表蛇身
 	{
 		MOVETO(ps->data.x,ps->data.y);
-		printf("≈");
+		printf("*");
 		printf("\n");
 		ps = ps->next;
 	}
@@ -185,6 +185,10 @@ int snake_move()	//蛇身移动
 	if (p->data.x == food->x && p->data.y == food->y)		//吃到食物
 	{
 		score++;
+		if(score%5==0&&score>0)
+		{
+			speed--;
+		}
 		snake_length++;
 		while(flag == 0)			//判断产生的食物是否与身体重合
 		{
@@ -234,7 +238,7 @@ void PrepareConsole(void)
 	}
 }
 
-int Speed(int count)		//控制蛇的移速,每增长5分速度提升一次
+/*int Speed(int count)		//控制蛇的移速,每增长5分速度提升一次
 {
 	if (score == 0)
 	{
@@ -251,7 +255,7 @@ int Speed(int count)		//控制蛇的移速,每增长5分速度提升一次
 	}
 	else if (count == 1)
 		return count;
-}
+}*/
 
 void read_game()
 {
@@ -374,7 +378,7 @@ int main()
 	PrepareConsole();
 	while(1)
 	{
-		t = Speed(speed);
+		
 		int c = EOF, ch = EOF;
 		while ((c = getchar()) != EOF)
 		{
@@ -395,13 +399,13 @@ int main()
 		display();
 		system("clear");
 		MOVETO(42,4);
-		printf("speed: %d",8-t);
+		printf("speed: %d",8-speed);
 		MOVETO(10,4);
 		printf("score: %d",score);
 		if (snake_move() == 0)
 			break;
 		draw_snake_food();
-		usleep(100000*t);
+		usleep(50000*speed);
 	}
 	RestoreConsole();
 	return 0;
