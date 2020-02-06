@@ -89,7 +89,7 @@ class Time
 public:
     Time(int hour = 0,int minute = 0,int second = 0)
     :_hour(hour)
-    ,_minute(minute
+    ,_minute(minute）
     ,_second(second)
     {}
     
