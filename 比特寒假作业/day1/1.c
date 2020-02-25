@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<stdlib.h>
 int main()
 {
 	int num,sum;
@@ -7,5 +8,6 @@ int main()
 	sum++;//8
 	++num;
 	printf("%d",sum);
+	system("pause");
 	return 0;
 }
