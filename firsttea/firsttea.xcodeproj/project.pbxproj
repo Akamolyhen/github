@@ -25,6 +25,7 @@
 /* Begin PBXFileReference section */
 		8032D3852405B8A3004C1524 /* firsttea */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = firsttea; sourceTree = BUILT_PRODUCTS_DIR; };
 		8032D3882405B8A3004C1524 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		8032D3912405CB0D004C1524 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				8032D3882405B8A3004C1524 /* main.c */,
+				8032D3912405CB0D004C1524 /* Header.h */,
 			);
 			path = firsttea;
 			sourceTree = "<group>";
