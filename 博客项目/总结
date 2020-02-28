@@ -1,4 +1,4 @@
-分布式系统下生成唯一主键 primary key
+ 分布式系统下生成唯一主键 primary key
 1、使用时间戳
 2、使用机房id
 3、使用主机ip
@@ -38,12 +38,87 @@ MYSQL API 的核心思想：拼SQL语句
  	create_time:=====,
  	tag_id:=====,
  }
-2、获取博客列表
-3、获取某个博客的详细内容
+ HTTP/1.1 200OK
+ {
+ 	ok:true
+ 	reason:""
+ }
+ -----------------
+2、获取博客列表  //用于展示博客列表
+GET /blog   获取所有
+GET /blog ==>tag_id==1  按照标签筛选
+
+HTTP/1.1 200 OK
+[
+{
+	blog_id:1,
+	title:"我的第一"，
+	create_time:"2020/02/27",
+	tag_id:1
+}
+{
+	.........
+	.........
+	.........
+	.........
+}
+]
+3、获取某个博客的详细内容  //用于展示博客详情内容
+GET /blog/:blog_id   类似于/blog/10
+HTTP/1.1 200 OK
+{
+	"blog_id":1,
+	"title":"我的第一篇博客",
+	"content":"博客正文",
+	"create_time":"2020/02/28"
+}
 4、修改博客
+PUT /blog/:blog_id
+{
+	title:"修改之后的标题",
+	content:"修改之后的正文",
+	tag_id:"修改之后的tag_id"
+}
 5、删除博客
+DELETE /blog/:blog_id	
+HTTP/1.1 200 OK
+{
+	ok:true
+}
 
 二、标签管理
 1、新增标签
+POST /tag
+{
+	"tag_name":"新增的标签名"
+}
+HTTP/1.1 200 OK
+{
+	ok:true
+}
 2、删除标签
+DELETE /tag/:tag_id
+HTTP/1.1 200 OK
+{
+	ok:true
+}
 3、查看所有标签
+GET /tag
+HTTP/1.1 200 OK
+{
+	{
+		tag_id:1,
+		tag_name:C++
+	}
+	{
+		........
+		........
+		........
+	}
+}
+
+
+正式编码
+1、数据库
+2、HTTP服务端
+3、网页客户端
