@@ -1,6 +1,6 @@
 //创建一些相关的类来封装数据库的操作
 
-
+#include<memory>
 #include<cstdio>
 #include<cstdlib>
 #include<mysql/mysql.h>
@@ -40,22 +40,61 @@ namespace blog_system{
 		//json::Value jsoncpp 中最核心的类
 		//json::Value 就表示一个具体的json对象
 		bool Insert(const Json::Value& blog){
+			const std::string& content=blog["content"].asCString();
+			//char* to=new char[content.size()*2+1]
+			std::unique_ptr<char> to(new char[content.size()*2+1]);
+			mysql_real_escape_string(mysql_, to.get() ,content.c_str(),content.size())
 			//拼装SQL语句
+			std::unique_ptr<char> sql(new char[content.size()*2+4096])
 			char sql[1024*100]={};
-			sprintf(sql,"insert into blog_table valus(null,'%s','%s')",
-				blog["title"].asCString(),blog["content"].asCString(),
+			sprintf(sql.get(),"insert into blog_table valus(null,'%s','%s')",
+				blog["title"].asCString(),to.get(),
 				blog["blog_id"].asInt(),blog["create_time"].asCString);
-			int ret=mysql_query(mysql_,sql);
+			int ret=mysql_query(mysql_,sql.get());
 			if(ret!=0){
 				printf("执行插入博客失败！%s\n",mysql_error(mysql_));
 				return false;
 			}
+			printf("执行插入成功！\n");
 			return true;
 
 		}
 		//blogs 作为一个输出型参数
-		bool SelectAll(json::Value* blogs,const std::string& tag_id){
-			return true;
+		bool SelectAll(json::Value* blogs,
+			const std::string& tag_id=""){
+			char sql[1024*4]={0};
+			if (tag_id==""){
+				//此时不需要用tag_id筛选
+				sprintf(sql,"select blog_id,title,tag_id,create_time from blog_table");
+
+			}
+			else{
+				sprintf(sql,"select blog_id,title,tag_id,create_time from 
+					blog_table where tag_id=%d",std::stoi(tag_id));
+			}
+			int ret=mysql_query(mysql_,sql);
+			if(ret!=0){
+				printf("执行查找所有博客失败！\n",mysql_error(mysql_));
+				return false;
+			}
+			printf("执行查找所有博客成功！\n");
+			MYSQL_RES* result=mysql_store_result(mysql_);
+			int rows=mysql_num_rows(result);
+			//遍历结果集合然后把结果写到blogs参数中，返回调用者		
+			for(int i=0;i<rows;++i)
+			{
+				MYSQL_ROW row=mysql_fetch_row(result);
+				Json::Value blog;
+				blog["blog_id"]=atoi(row[0]);
+				blog["title"]=row[1];
+				blog["tag_id"]=atoi(row[2]);
+				blog["create_time"]=row[3];
+				blogs->append(blog);
+			}
+			//mysql查询的结果集合要及时释放
+			musql_free_result(result);
+			printf("执行查找所有博客成功！共查找到%d条博客\n"，rows);
+		 	return true;
 
 		}
 		//blog同样是输出型参数，根据当前的blog_id在数据库中找到具体的blog参数返回
