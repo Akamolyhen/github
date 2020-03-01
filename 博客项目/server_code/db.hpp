@@ -49,13 +49,31 @@ namespace blog_system{
 		}
 		//blog同样是输出型参数，根据当前的blog_id在数据库中找到具体的blog参数返回
 		bool Selectone(int32_t blog_id,Json::Value* blogs){
-			
+			return true;
 		}
-		bool Update(){
+		bool Update(const Json::Value& blog){
 
 		}
-		bool Delete(){
-
+		bool Delete(int32_t blog_id){
+			return true;
 		}
-	}
+    private:
+
+	};
+	class TagTable
+	{
+	public:
+		TagTable();
+		bool Insert(const Json::Value& tag){
+			return true;
+		}
+		bool Delete(int32_t tag_id){
+			return true;
+		}
+		bool SelectAll(Json::Value* tags){
+			return true;
+		}
+	private:
+		
+	};
 }//end blog_system
