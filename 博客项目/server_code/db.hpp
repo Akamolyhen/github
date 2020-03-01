@@ -4,6 +4,7 @@
 #include<cstdio>
 #include<cstdlib>
 #include<mysql/mysql.h>
+#include<jsoncpp/json/json.h>
 
 namespace blog_system{
 	static MySQL* MySQLInit(){
@@ -34,20 +35,27 @@ namespace blog_system{
 		BlogTable(MYSQL* connect_fd){
 			//通过这个构造函数获取到一个数据库的操作句柄
 		}
-		bool Insert(){
+		//以下操作相关参数都统一使用JSON的方式
+		//json::Value jsoncpp 中最核心的类
+		//json::Value 就表示一个具体的json对象
+		bool Insert(const Json::Value& blog){
+			return true;
 
 		}
-		bool SelectAll(){
+		//blogs 作为一个输出型参数
+		bool SelectAll(json::Value* blogs,const std::string& tag_id){
+			return true;
 
 		}
-		bool Selectone(){
-
+		//blog同样是输出型参数，根据当前的blog_id在数据库中找到具体的blog参数返回
+		bool Selectone(int32_t blog_id,Json::Value* blogs){
+			
 		}
 		bool Update(){
 
 		}
 		bool Delete(){
-			
+
 		}
 	}
 }//end blog_system
