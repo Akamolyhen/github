@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		80284558240BC40800061B70 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80284557240BC40800061B70 /* SDL2.framework */; };
 		803956F3240B31A70032623D /* test_window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 803956F1240B31A70032623D /* test_window.cpp */; };
 /* End PBXBuildFile section */
 
@@ -14,7 +15,7 @@
 		808C8041240A908A00AA48DA /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
+			dstPath = /usr/share/man/man1;
 			dstSubfolderSpec = 0;
 			files = (
 			);
@@ -23,6 +24,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		80284557240BC40800061B70 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
 		803956F1240B31A70032623D /* test_window.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = test_window.cpp; sourceTree = "<group>"; };
 		803956F2240B31A70032623D /* test_window.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = test_window.hpp; sourceTree = "<group>"; };
 		808C8043240A908A00AA48DA /* Window */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Window; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -33,17 +35,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80284558240BC40800061B70 /* SDL2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8028454E240BBD4600061B70 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				80284557240BC40800061B70 /* SDL2.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		808C803A240A908A00AA48DA = {
 			isa = PBXGroup;
 			children = (
 				808C8045240A908A00AA48DA /* Window */,
 				808C8044240A908A00AA48DA /* Products */,
+				8028454E240BBD4600061B70 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -131,7 +143,7 @@
 		808C8048240A908A00AA48DA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -189,7 +201,7 @@
 		808C8049240A908A00AA48DA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -240,7 +252,12 @@
 		808C804B240A908A00AA48DA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -248,7 +265,12 @@
 		808C804C240A908A00AA48DA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

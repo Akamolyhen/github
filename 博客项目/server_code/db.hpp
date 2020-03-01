@@ -8,7 +8,7 @@
 #include<cstring>
 
 namespace blog_system{
-	static MySQL* MySQLInit(){
+	static MYSQL* MySQLInit(){
 		//1、创建一个句柄
 		MYSQL* connect_fd = mysql_init(NULL);
 		//2、和数据库建立链接
@@ -43,13 +43,12 @@ namespace blog_system{
 			const std::string& content=blog["content"].asCString();
 			//char* to=new char[content.size()*2+1]
 			std::unique_ptr<char> to(new char[content.size()*2+1]);
-			mysql_real_escape_string(mysql_, to.get() ,content.c_str(),content.size())
+			mysql_real_escape_string(mysql_, to.get() ,content.c_str(),content.size());
 			//拼装SQL语句
-			std::unique_ptr<char> sql(new char[content.size()*2+4096])
-			char sql[1024*100]={};
+			std::unique_ptr<char> sql(new char[content.size()*2+4096]);
 			sprintf(sql.get(),"insert into blog_table valus(null,'%s','%s')",
 				blog["title"].asCString(),to.get(),
-				blog["blog_id"].asInt(),blog["create_time"].asCString);
+				blog["blog_id"].asInt(),blog["create_time"].asCString());
 			int ret=mysql_query(mysql_,sql.get());
 			if(ret!=0){
 				printf("执行插入博客失败！%s\n",mysql_error(mysql_));
@@ -99,12 +98,60 @@ namespace blog_system{
 		}
 		//blog同样是输出型参数，根据当前的blog_id在数据库中找到具体的blog参数返回
 		bool Selectone(int32_t blog_id,Json::Value* blogs){
+			char sql[1024]={0};
+			sprintf(sql,"select blog_id,title,content,tag_id,create_time 
+				from blog_table where blog_id =%d",blog_id);
+			int ret=mysql_query(mysql_,sql);
+			if(ret!=0)
+			{
+				printf("执行查找博客失败！%s\n",mysql_error(mysql_) );
+				return false;
+			}
+			MYSQL_RES* result =mysql_store_result(mysql_);
+			int rows=mysql_num_rows(result);
+			if(row!=1){
+				printf("查找到的博客不是只有一条！实际有%d条",rows);
+				return false;
+			}
+			MYSQL_ROW row=mysql_fetch_row(result);
+			(*blog)["blog_id"]=atoi(row[0]);
+			(*blog)["title"]=row[1];
+			(*blog)["content"]=row[2];
+			(*blog)["title"]=atoi(row[3]);
+			(*blog)["create_time"]=row[4];
 			return true;
 		}
 		bool Update(const Json::Value& blog){
+			const std::string& content=blog["content"].asCString();
+			//char* to=new char[content.size()*2+1]
+			std::unique_ptr<char> to(new char[content.size()*2+1]);
+			mysql_real_escape_string(mysql_, to.get() ,content.c_str(),content.size())
+			//拼装SQL语句
+			std::unique_ptr<char> sql(new char[content.size()*2+4096]);
+			sprintf(sql.get(),"update blog_table set title='%s',content='%s',tag_id=%d
+				where blog_id=%d",
+				blog["title"].asCString(),
+				to.get(),
+				blog["tag_id"].asInt,
+				blog["blog_id"].asInt());
+			int ret =mysql_query(mysql_,sql.get());
+			if(ret!=0){
+				printf("更新博客失败！%s\n",mysql_error(mysql_) );
+				return false;
+			}
+			printf("更新博客成功！\n");
+			return true;
 
 		}
 		bool Delete(int32_t blog_id){
+			char sql[1024*4]={0};
+			sprintf(sql,"delete from blog_table where blog_id=%d",blog_id);
+			int ret=mysql_query(mysql_,sql);
+			if(ret!=0){
+				printf("删除博客失败！\n",mysql_error(mysql_));
+				return false;
+			}
+			printf("删除博客成功！\n");
 			return true;
 		}
     private:
