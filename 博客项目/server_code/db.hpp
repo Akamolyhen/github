@@ -5,6 +5,7 @@
 #include<cstdlib>
 #include<mysql/mysql.h>
 #include<jsoncpp/json/json.h>
+#include<cstring>
 
 namespace blog_system{
 	static MySQL* MySQLInit(){
@@ -32,13 +33,23 @@ namespace blog_system{
 	//创建一个类，用于操作博客表的类
 	class BlogTable{
 	public:
-		BlogTable(MYSQL* connect_fd){
+		BlogTable(MYSQL* connect_fd):mysql_(connect_fd){
 			//通过这个构造函数获取到一个数据库的操作句柄
 		}
 		//以下操作相关参数都统一使用JSON的方式
 		//json::Value jsoncpp 中最核心的类
 		//json::Value 就表示一个具体的json对象
 		bool Insert(const Json::Value& blog){
+			//拼装SQL语句
+			char sql[1024*100]={};
+			sprintf(sql,"insert into blog_table valus(null,'%s','%s')",
+				blog["title"].asCString(),blog["content"].asCString(),
+				blog["blog_id"].asInt(),blog["create_time"].asCString);
+			int ret=mysql_query(mysql_,sql);
+			if(ret!=0){
+				printf("执行插入博客失败！%s\n",mysql_error(mysql_));
+				return false;
+			}
 			return true;
 
 		}
@@ -58,7 +69,7 @@ namespace blog_system{
 			return true;
 		}
     private:
-
+    	MYSQL* mysql_;
 	};
 	class TagTable
 	{
