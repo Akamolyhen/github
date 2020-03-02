@@ -46,7 +46,7 @@ namespace blog_system{
 			mysql_real_escape_string(mysql_, to.get() ,content.c_str(),content.size());
 			//拼装SQL语句
 			std::unique_ptr<char> sql(new char[content.size()*2+4096]);
-			sprintf(sql.get(),"insert into blog_table valus(null,'%s','%s')",
+			sprintf(sql.get(),"insert into blog_table values(null,'%s','%s',%d,'%s')",
 				blog["title"].asCString(),to.get(),
 				blog["blog_id"].asInt(),blog["create_time"].asCString());
 			int ret=mysql_query(mysql_,sql.get());
@@ -75,7 +75,7 @@ namespace blog_system{
 				printf("执行查找所有博客失败！\n",mysql_error(mysql_));
 				return false;
 			}
-			printf("执行查找所有博客成功！\n");
+			//printf("执行查找所有博客成功！\n");
 			MYSQL_RES* result=mysql_store_result(mysql_);
 			int rows=mysql_num_rows(result);
 			//遍历结果集合然后把结果写到blogs参数中，返回调用者		
@@ -157,17 +157,51 @@ namespace blog_system{
 	class TagTable
 	{
 	public:
-		TagTable();
+		TagTable(MYSQL* mysql) : mysql_(mysql) {}
+
 		bool Insert(const Json::Value& tag){
+            char sql[1024*4];
+            sprintf(sql,"insert into tag_table values(null,'%s')",tag["tag_name"].asCString());
+            int ret = mysql_query(mysql_,sql);
+            if(ret!=0){
+                printf("插入标签失败！%s\n",mysql_error(mysql_));
+                return false;
+            }
+            printf("插入标签成功！\n");
 			return true;
 		}
 		bool Delete(int32_t tag_id){
+            char sql[1024*4]={0};
+            sprintf(sql,"delete from tag_table where tag_id =%d",tag_id);
+            int ret =mysql_query(mysql_,sql);
+            if(ret!=0){
+                printf("删除标签失败 %s\n",mysql_error(mysql_));
+                return false;
+            }
+            printf("删除标签成功！\n");
 			return true;
 		}
 		bool SelectAll(Json::Value* tags){
+            char sql[1024*4]={0};
+            sprintf(sql,"select tag_id,tag_name from tag_table");
+            int ret = mysql_query(mysql_,sql);
+            if(ret!=0){
+                printf("查找标签失败！%s\n",mysql_error(mysql_));
+                return false;
+            }
+            MYSQL_RES* result = mysql_store_result(mysql_);
+            int rows =mysql_num_rows(result);
+            for(int i=0;i<rows;++i){
+                MYSQL_ROW row=mysql_fetch_row(result);
+                Json::Value tag;
+                tag["tag_id"]=atoi(row[0]);
+                tag["tag_name"]=row[1];
+                tags->append(tag);
+            }
+            printf("查找标签成功！共找到%d个！\n",rows);
 			return true;
 		}
 	private:
-		
+		MYSQL* mysql_;
 	};
 }//end blog_system
