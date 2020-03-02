@@ -123,7 +123,11 @@ HTTP/1.1 200 OK
 2、HTTP服务端
 3、网页客户端
 
-
+sprintf()来拼接SQL语句
+{
+	
+	
+}
 
 
 //Python 世界中Djangoyouweb开发框架，一键生成类似于上述的数据库代码
