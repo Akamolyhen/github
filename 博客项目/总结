@@ -128,3 +128,7 @@ HTTP/1.1 200 OK
 
 //Python 世界中Djangoyouweb开发框架，一键生成类似于上述的数据库代码
 
+MVC:
+Model:数据相关的存储和操作
+View：界面相关的操作
+Controller：核心业务逻辑（把V和M串到一起）
