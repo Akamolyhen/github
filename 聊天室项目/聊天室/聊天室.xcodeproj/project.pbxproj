@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		809190952352F8AD000A604E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 809190942352F8AD000A604E /* main.cpp */; };
+		802A1E432411175100123A95 /* myserver.c in Sources */ = {isa = PBXBuildFile; fileRef = 802A1E422411175100123A95 /* myserver.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		8091908F2352F8AD000A604E /* CopyFiles */ = {
+		802A1E35241116D800123A95 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -23,12 +23,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		809190912352F8AD000A604E /* shujujiegou_2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = shujujiegou_2; sourceTree = BUILT_PRODUCTS_DIR; };
-		809190942352F8AD000A604E /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		802A1E37241116D800123A95 /* 聊天室 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "聊天室"; sourceTree = BUILT_PRODUCTS_DIR; };
+		802A1E412411175100123A95 /* myserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = myserver.h; sourceTree = "<group>"; };
+		802A1E422411175100123A95 /* myserver.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = myserver.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		8091908E2352F8AD000A604E /* Frameworks */ = {
+		802A1E34241116D800123A95 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -38,94 +39,96 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		809190882352F8AD000A604E = {
+		802A1E2E241116D800123A95 = {
 			isa = PBXGroup;
 			children = (
-				809190932352F8AD000A604E /* shujujiegou_2 */,
-				809190922352F8AD000A604E /* Products */,
+				802A1E39241116D800123A95 /* 聊天室 */,
+				802A1E38241116D800123A95 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		809190922352F8AD000A604E /* Products */ = {
+		802A1E38241116D800123A95 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				809190912352F8AD000A604E /* shujujiegou_2 */,
+				802A1E37241116D800123A95 /* 聊天室 */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		809190932352F8AD000A604E /* shujujiegou_2 */ = {
+		802A1E39241116D800123A95 /* 聊天室 */ = {
 			isa = PBXGroup;
 			children = (
-				809190942352F8AD000A604E /* main.cpp */,
+				802A1E412411175100123A95 /* myserver.h */,
+				802A1E422411175100123A95 /* myserver.c */,
 			);
-			path = shujujiegou_2;
+			path = "聊天室";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		809190902352F8AD000A604E /* shujujiegou_2 */ = {
+		802A1E36241116D800123A95 /* 聊天室 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 809190982352F8AD000A604E /* Build configuration list for PBXNativeTarget "shujujiegou_2" */;
+			buildConfigurationList = 802A1E3E241116D800123A95 /* Build configuration list for PBXNativeTarget "聊天室" */;
 			buildPhases = (
-				8091908D2352F8AD000A604E /* Sources */,
-				8091908E2352F8AD000A604E /* Frameworks */,
-				8091908F2352F8AD000A604E /* CopyFiles */,
+				802A1E33241116D800123A95 /* Sources */,
+				802A1E34241116D800123A95 /* Frameworks */,
+				802A1E35241116D800123A95 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = shujujiegou_2;
-			productName = shujujiegou_2;
-			productReference = 809190912352F8AD000A604E /* shujujiegou_2 */;
+			name = "聊天室";
+			productName = "聊天室";
+			productReference = 802A1E37241116D800123A95 /* 聊天室 */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		809190892352F8AD000A604E /* Project object */ = {
+		802A1E2F241116D800123A95 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1030;
+				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "秦伟钦";
 				TargetAttributes = {
-					809190902352F8AD000A604E = {
-						CreatedOnToolsVersion = 10.3;
+					802A1E36241116D800123A95 = {
+						CreatedOnToolsVersion = 11.3.1;
 					};
 				};
 			};
-			buildConfigurationList = 8091908C2352F8AD000A604E /* Build configuration list for PBXProject "shujujiegou_2" */;
+			buildConfigurationList = 802A1E32241116D800123A95 /* Build configuration list for PBXProject "聊天室" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
-			mainGroup = 809190882352F8AD000A604E;
-			productRefGroup = 809190922352F8AD000A604E /* Products */;
+			mainGroup = 802A1E2E241116D800123A95;
+			productRefGroup = 802A1E38241116D800123A95 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				809190902352F8AD000A604E /* shujujiegou_2 */,
+				802A1E36241116D800123A95 /* 聊天室 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		8091908D2352F8AD000A604E /* Sources */ = {
+		802A1E33241116D800123A95 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				809190952352F8AD000A604E /* main.cpp in Sources */,
+				802A1E432411175100123A95 /* myserver.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		809190962352F8AD000A604E /* Debug */ = {
+		802A1E3C241116D800123A95 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -157,7 +160,6 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -176,7 +178,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -184,7 +186,7 @@
 			};
 			name = Debug;
 		};
-		809190972352F8AD000A604E /* Release */ = {
+		802A1E3D241116D800123A95 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -216,7 +218,6 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -229,25 +230,29 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
 			};
 			name = Release;
 		};
-		809190992352F8AD000A604E /* Debug */ = {
+		802A1E3F241116D800123A95 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V9556H436B;
+				ENABLE_HARDENED_RUNTIME = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		8091909A2352F8AD000A604E /* Release */ = {
+		802A1E40241116D800123A95 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V9556H436B;
+				ENABLE_HARDENED_RUNTIME = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -255,25 +260,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8091908C2352F8AD000A604E /* Build configuration list for PBXProject "shujujiegou_2" */ = {
+		802A1E32241116D800123A95 /* Build configuration list for PBXProject "聊天室" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				809190962352F8AD000A604E /* Debug */,
-				809190972352F8AD000A604E /* Release */,
+				802A1E3C241116D800123A95 /* Debug */,
+				802A1E3D241116D800123A95 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		809190982352F8AD000A604E /* Build configuration list for PBXNativeTarget "shujujiegou_2" */ = {
+		802A1E3E241116D800123A95 /* Build configuration list for PBXNativeTarget "聊天室" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				809190992352F8AD000A604E /* Debug */,
-				8091909A2352F8AD000A604E /* Release */,
+				802A1E3F241116D800123A95 /* Debug */,
+				802A1E40241116D800123A95 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 809190892352F8AD000A604E /* Project object */;
+	rootObject = 802A1E2F241116D800123A95 /* Project object */;
 }
