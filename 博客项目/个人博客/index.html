@@ -48,7 +48,7 @@
                 <span> @{{author}} &nbsp;</span>
                 <span>{{blog.create_time}}</span>
                 <!--v-on:click把当前html标签关联-->
-                <h1><a v-on:click="get_blog(blog.blog_id">{{blog.title}}</a></h1>
+                <h1><a v-on:click="get_blog(blog.blog_id)">{{blog.title}}</a></h1>
                 
                 <p><a href="" class="blog-continue">continue reading</a></p>
             </div>
@@ -187,7 +187,7 @@
                       //点击博客标题时，调用这个函数，来获取整个博客的内容
                       get_blog(blog_id){
                         $.ajax({
-                          url:'/blog'+blog_id,
+                          url:'/blog/'+blog_id,
                           type:"get",
                           context:this,
                           success:function(data,status){
