@@ -1,0 +1,300 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Dofen的个人博客</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+  <link rel="icon" type="image/png" href="assets/i/favicon.png">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" href="assets/i/app-icon72x72@2x.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+  <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+  <meta name="msapplication-TileImage" content="assets/i/app-icon72x72@2x.png">
+  <meta name="msapplication-TileColor" content="#0e90d2">
+  <link rel="stylesheet" href="assets/css/amazeui.min.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+  <link rel="stylesheet" href="editor.md/css/editormd.css" />
+  
+  <!--标签中写的就是css-->
+  <style>
+  [v-cloak]{
+    display:none;
+  }
+  </style>
+
+
+</head>
+
+<body id="blog">
+
+
+
+
+
+<!-- content srart -->
+<div class="am-g am-g-fixed blog-fixed" id="app">
+    <div class="am-u-md-8 am-u-sm-12" v-show="blog.blog_id==null">
+
+        <article class="am-g blog-entry-article" v-for="blog in blogs" v-cloak>
+
+            <div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-text">
+                <span><a href="" class="blog-color">{{tag_id2name(blog.tag_id)}} &nbsp;</a></span>
+                <span> @{{author}} &nbsp;</span>
+                <span>{{blog.create_time}}</span>
+                <!--v-on:click把当前html标签关联-->
+                <h1><a v-on:click="edit_blog(blog.blog_id)">{{blog.title}}</a></h1>
+                <button type="button" class="am-btn am-btn-danger am-round" v-on:click="delete_blog(blog.blog_id)">Delete Blog</button>
+                <p><a href="" class="blog-continue">continue reading</a></p>
+            </div>
+        </article>
+
+       
+
+    </div>
+    <!--先使用editor.md完成markdown到html的转换-->
+    <div class="am-u-md-12 am-u-sm-12" v-show="blog.blog_id!=null" v-cloak>
+     <div class="am-form">
+      <div class="am-form-group">
+        <label for="doc-ipt-email-1">博客标题</label>
+        <input type="text" class="" v-model="blog.title"><!--双向绑定-->
+      </div>   
+     </div>
+      
+      <article id="viewblog">
+          <textarea >
+            {{blog.content}}
+          </textarea>
+         </article>
+         <button type="button" class="am-btn am-btn-success am-round" v-on:click="Update_blog(blog.blog_id)">Update Blog</button>
+         <button type="button" class="am-btn am-btn-danger am-round" v-on:click="back()">Back</button>
+   </div>
+
+    <div class="am-u-md-4 am-u-sm-12 blog-sidebar" v-show="blog.blog_id==null">
+        <div class="blog-sidebar-widget blog-bor" v-cloak>
+            <h2 class="blog-text-center blog-title"><span>About ME</span></h2>
+            <img src="assets/i/f14.jpg" alt="about me" class="blog-entry-img" >
+            <!--插值表达式-->
+            <p>I'm {{author}}</p>
+            <p>
+        No pain No gain
+        </p> <p style="text-align:left">从小我就喜欢打游戏，也向往能做一个独立的游戏开发工作者，如今随着各大游戏平台的兴起做大，我可以预见到我的梦想就是可以设计出属于自己的一款游戏，维护着它，陪伴着它而长大。但与之同时，也正因为厂商的做大，独立游戏开发，确是如今游戏平台的难题，就如War3重制版举例，在当时的中国魔兽争霸背景历史中， 我们所体验的大多为大佬们为广大游戏爱好者插入的中译，英语原声，这些才是我们对War3的回忆，而在重制版中，暴雪并没有意识到国内玩家的喜爱取向，尽管由官方正式加入了更为优秀的中文翻译，但同时当我们选择中文时，游戏语音也会改变成中文，所以可以预见的，War3重制版自发售以来饱受吐槽！<br/>
+        我希望自己可以从用户出发，设计出能真正引导和改变一代人的游戏!</p>
+        </div>
+        <div class="blog-sidebar-widget blog-bor">
+            <h2 class="blog-text-center blog-title"><span>Contact ME</span></h2>
+            <p>
+                <p style="text-align:left">number phone:187-1037-1003</p>
+                <p style="text-align:left">emil:aka_wannabe@163.com</p>
+                <a href="http://user.qzone.qq.com/907446875"><span class="am-icon-qq am-icon-fw am-primary blog-icon"></span></a>
+                <a href="https://github.com/Akamolyhen"><span class="am-icon-github am-icon-fw blog-icon"></span></a>
+            </p>
+        </div>
+        <div class="blog-clear-margin blog-sidebar-widget blog-bor am-g ">
+            <h2 class="blog-title"><span>TAG cloud</span></h2>
+            <div class="am-u-sm-12 blog-clear-padding" v-cloak>
+            <a href="" class="blog-tag" v-for="tag in tags">{{tag.tag_name}}</a>
+            
+      
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- content end -->
+
+
+
+  <footer class="blog-footer">
+    <div class="blog-text-center">© 2020 by Dofen</div>    
+  </footer>
+
+
+
+
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="assets/js/jquery.min.js"></script>
+<!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="assets/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script src="editor.md/lib/marked.min.js"></script>
+<script src="editor.md/lib/prettify.min.js"></script>
+
+<script src="editor.md/lib/raphael.min.js"></script>
+<script src="editor.md/lib/underscore.min.js"></script>
+<script src="editor.md/lib/sequence-diagram.min.js"></script>
+<script src="editor.md/lib/flowchart.min.js"></script>
+<script src="editor.md/lib/jquery.flowchart.min.js"></script>
+
+<script src="editor.md/editormd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="assets/js/amazeui.min.js"></script>
+<script>
+    var app =new Vue(
+                     {
+                         el: '#app', //el表示app这个Vue对象和哪个HTML上的哪个元素关联
+                         data:{
+                          //data 表示所有需要在页面上的动态变化数据
+                          //把js中的数据和界面上的内容关联在一起
+                          author:'Dofen' ,
+                          blogs:[
+                          
+                          ],
+                          tags:[
+                          
+                          ],
+                          //blog对象保存当前页面上展示的博客详细内容
+                         blog:{
+                           blog_id:null,
+                           title:null,
+                           content:null,
+                           create_time:null,
+                           tag_id:null
+                         }
+                         },
+                         
+                         methods:{
+                      tag_id2name(tag_id){
+                        //index表示的数组下标
+                        for(var index in this.tags){
+                          if(this.tags[index].tag_id==tag_id){
+                            return this.tags[index].tag_name;
+                          }
+                        }
+                        return "默认分类";
+                      },
+                      get_blogs(tag_id){
+                        var url='/blog';
+                        if(tag_id!=null){
+                          url='blog/?tag_id='+tag_id;
+                        }
+                        //核心,访问http服务器数据(ajax)
+                        //ajax原生API特别难用，Vue也提供了API，但环境配置比较难用，此处我们使用JQuery 提供的API
+                        $.ajax({
+                          url:url,
+                          type:"get",
+                          context:this,//此处的this表示Vue对象
+                          success:function(data,status){
+                            //data表示响应的body数据，status表示响应的状态码
+                            //HTTP请求执行成功之后，要执行的代码，在这个代码中更新数据
+                            //如果不设置context，此时直接使用this.blogs是会出错的，因为此时this表示当前$这样的JQuery对象
+                            this.blogs=data;
+                          }
+                        })
+                      },
+                      init(){
+                        //1、从服务器上获取tag
+                        $.ajax({
+                          url:"/tag",
+                          type:"get",
+                          context:this,
+                          success:function(data,status){
+                            this.tags=data;
+                            this.get_blogs();
+                          }
+                        })
+                    
+                      },
+                      //点击博客标题时，调用这个函数，来获取整个博客的内容
+                      get_blog(blog_id){
+                        $.ajax({
+                          url:'/blog/'+blog_id,
+                          type:"get",
+                          context:this,
+                          success:function(data,status){
+                            //此时得到的blog.content是markdown的格式数据
+                            this.blog=data;
+                            //把这个markdown格式的数据转换成html，并显示在界面上
+                            testEditormdView = editormd.markdownToHTML("viewblog", {
+                        markdown        : this.blog.content ,//+ "\r\n" + $("#append-test").text(),
+                        //htmlDecode      : true,       // 开启 HTML 标签解析，为了安全性，默认不开启
+                        htmlDecode      : "style,script,iframe",  // you can filter tags decode
+                        //toc             : false,
+                        tocm            : true,    // Using [TOCM]
+                        //tocContainer    : "#custom-toc-container", // 自定义 ToC 容器层
+                        //gfm             : false,
+                        //tocDropdown     : true,
+                        // markdownSourceCode : true, // 是否保留 Markdown 源码，即是否删除保存源码的 Textarea 标签
+                        emoji           : true,
+                        taskList        : true,
+                        tex             : true,  // 默认不解析
+                        flowChart       : true,  // 默认不解析
+                        sequenceDiagram : true,  // 默认不解析
+                    });
+                          }
+                        })
+                      },
+                      delete_blog(blog_id){
+                        $.ajax({
+                          type:"delete",
+                          url:'./blog/'+blog_id,
+                          context: this,
+                          success:function(data,status){
+                            this.get_blogs();
+                            alert("删除成功！");
+                          }
+                        })
+                      },
+                      edit_blog(blog_id){
+                        //1、先把之前的博客数据清空
+                        this.blog={};
+                        //2、用$ajax获取到当前博客
+                        $.ajax({
+                          type:"get",
+                          url:"/blog/"+blog_id,
+                          context:this,
+                          success:function(data,status){
+                            this.blog=data;
+                            //3、加载markdown编辑器      
+                            testEditor = editormd("viewblog", {
+                            width   : "100%",
+                            height  : "700px",
+                            syncScrolling : "single",
+                            path    : "editor.md/lib/"
+                });
+                          }
+
+                        })
+                      },
+                      back(){
+                        this.blog={};
+                      },
+                      Update_blog(blog_id){
+                        
+                        var content=testEditor.getMarkdown();//从编辑器中获取修改后的数据
+                        var body={
+                          title:this.blog.title,
+                          content:content,//此处需要得到修改后的内容
+                          tag_id:this.blog.tag_id
+                        }
+                        $.ajax({
+                          type:"put",
+                          url:"/blog/"+blog_id,
+                          data:JSON.stringify(body),
+                          contentType:'application/json;charset=utf-8',
+                          context:this,
+                          success:function(data,status){
+                            this.get_blogs();
+                            alert("提交成功");
+                            this.back();
+                          }
+                        })
+                      }
+                         }
+                    
+});
+app.init();
+
+</script>
+</body>
+</html>
