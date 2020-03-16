@@ -39,7 +39,7 @@
 
 <!-- content srart -->
 <div class="am-g am-g-fixed blog-fixed" id="app">
-    <div class="am-u-md-8 am-u-sm-12">
+    <div class="am-u-md-8 am-u-sm-12" v-show="blog.blog_id==null">
 
         <article class="am-g blog-entry-article" v-for="blog in blogs" v-cloak>
 
@@ -58,7 +58,7 @@
 
     </div>
     <!--先使用editor.md完成markdown到html的转换-->
-    <div class="am-u-md-8 am-u-sm-12">
+    <div class="am-u-md-8 am-u-sm-12" v-show="blog.blog_id!=null">
          <article id="viewblog">
 
          </article>
@@ -140,8 +140,17 @@
                           ],
                           tags:[
                           
-                          ]
+                          ],
+                          //blog对象保存当前页面上展示的博客详细内容
+                         blog:{
+                           blog_id:null,
+                           title:null,
+                           content:null,
+                           create_time:null,
+                           tag_id:null
+                         }
                          },
+                         
                          methods:{
                       tag_id2name(tag_id){
                         //index表示的数组下标
@@ -195,7 +204,7 @@
                             this.blog=data;
                             //把这个markdown格式的数据转换成html，并显示在界面上
                             testEditormdView = editormd.markdownToHTML("viewblog", {
-                        markdown        : thie.blog.content ,//+ "\r\n" + $("#append-test").text(),
+                        markdown        : this.blog.content ,//+ "\r\n" + $("#append-test").text(),
                         //htmlDecode      : true,       // 开启 HTML 标签解析，为了安全性，默认不开启
                         htmlDecode      : "style,script,iframe",  // you can filter tags decode
                         //toc             : false,
