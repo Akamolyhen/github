@@ -280,7 +280,29 @@ int main()
         //2.构造正确的结果
         resp.set_content(writer.write(resp_json), "application/json");
         return;
-    });    
+    });  
+    //查看指定标签的博客
+    /*server.Get(R"(/tag/(\d+))",[&tag_table](const Request& req, Response& resp)
+    {
+         Json::FastWriter writer;
+        // 1. 解析获取到的 tag_id
+        int32_t tag_id = std::stoi(req.matches[1].str());
+        printf("查看 tag_id 为 %d 的博客!\n",tag_id);
+        // 2. 直接调用数据库操作
+        Json::Value resp_json;
+        bool ret = blog_table.SelectOne(tag_id, &resp_json);
+        if (!ret)
+        {
+            resp_json["ok"] = false;
+            resp_json["reason"] = "查看指定博客失败：" + std::to_string(blog_id);
+            resp.status = 404;
+            resp.set_content(writer.write(resp_json), "application/json");
+            return;
+        }
+        //3. 执行正确的响应
+        resp.set_content(writer.write(resp_json), "application/json");
+        return;
+    });*/
 
     server.set_base_dir("./wwwroot");
     server.listen("0.0.0.0", 9093);

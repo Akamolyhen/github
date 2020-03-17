@@ -44,7 +44,7 @@
         <article class="am-g blog-entry-article" v-for="blog in blogs" v-cloak>
 
             <div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-text">
-                <span><a href="" class="blog-color">{{tag_id2name(blog.tag_id)}} &nbsp;</a></span>
+                <span><a v-on:click="get_blogs(blog.tag_id)" class="blog-color">{{tag_id2name(blog.tag_id)}} &nbsp;</a></span>
                 <span> @{{author}} &nbsp;</span>
                 <span>{{blog.create_time}}</span>
                 <!--v-on:click把当前html标签关联-->
@@ -87,7 +87,7 @@
         <div class="blog-clear-margin blog-sidebar-widget blog-bor am-g ">
             <h2 class="blog-title"><span>TAG cloud</span></h2>
             <div class="am-u-sm-12 blog-clear-padding" v-cloak>
-            <a href="" class="blog-tag" v-for="tag in tags">{{tag.tag_name}}</a>
+            <a v-on:click="get_blogs(tag.tag_id)" class="blog-tag" v-for="tag in tags">{{tag.tag_name}} &nbsp;</a>
             
       
             </div>
@@ -100,7 +100,7 @@
 
 
   <footer class="blog-footer">
-    <div class="blog-text-center">© 2020 by Dofen</div>    
+    <div class="blog-text-center">© Double20 by Dofen</div>    
   </footer>
 
 
@@ -164,7 +164,7 @@
                       get_blogs(tag_id){
                         var url='/blog';
                         if(tag_id!=null){
-                          url='blog/?tag_id='+tag_id;
+                          url='/blog?tag_id='+tag_id;
                         }
                         //核心,访问http服务器数据(ajax)
                         //ajax原生API特别难用，Vue也提供了API，但环境配置比较难用，此处我们使用JQuery 提供的API
