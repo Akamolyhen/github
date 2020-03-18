@@ -59,6 +59,7 @@
 
     </div>
     <!--先使用editor.md完成markdown到html的转换-->
+    
     <div class="am-u-md-12 am-u-sm-12" v-show="blog.blog_id!=null" v-cloak>
      <div class="am-form">
       <div class="am-form-group">
@@ -73,6 +74,7 @@
             {{blog.content}}
           </textarea>
          </article>
+        
          <button type="button" class="am-btn am-btn-success am-round" v-on:click="Update_blog(blog.blog_id)">Update Blog</button>
          <button type="button" class="am-btn am-btn-danger am-round" v-on:click="back()">Back</button>
    </div>
@@ -101,20 +103,32 @@
         <div class="blog-clear-margin blog-sidebar-widget blog-bor am-g ">
             <h2 class="blog-title"><span>TAG cloud</span></h2>
             <div class="am-u-sm-12 blog-clear-padding" v-cloak>
-              <div  v-for="tag in tags">
-                <a v-on:click="get_blogs(tag.tag_id)" class="blog-tag" >{{tag.tag_name}} &nbsp;</a>
+              <div style="text-align:right" v-for="tag in tags">
+                <a v-on:click="get_blogs(tag.tag_id)" class="blog-tag" >{{tag.tag_name}}  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;</a>
               <button type="button"  class="am-btn am-btn-danger am-round" v-on:click="delete_tag(tag.tag_id)" >删除标签</button>
               
               </div>
-              
-              <button type="button" class="am-btn am-btn-success am-round" v-on:click="new_tag()">新增标签</button>
-              
-              
-            </div>
+              <div style="text-align:left">
+                <button type="button" class="am-btn am-btn-success am-round" v-on:click="new_tag()">新增标签</button>
+                <input type="text" value="" id="textId" class="textClass" name="textName">
+                
+              </div>
+             </div>
         </div>
         <button type="button" class="am-btn am-btn-danger am-round" v-on:click="get_blogs()">Back</button>
     </div>
-</div>
+    <div>
+      <article id="test-editormd">
+      
+        <textarea># WelCome Edit
+  
+        </textarea>
+      </article>
+    </div>
+    
+
+  </div>
+
 <!-- content end -->
 
 
@@ -299,31 +313,58 @@
                         })
                       },
                       New_blog(){
-
-                           
              
-                           testEditor = editormd("viewblog", {
-                            width   : "100%",
-                            height  : "700px",
-                            syncScrolling : "single",
-                            path    : "editor.md/lib/"
-                });
+            testEditor = editormd("test-editormd", {
+                width   : "100%",
+                height  : "700px",
+                syncScrolling : "single",
+                path    : "editor.md/lib/"
+            });  
+                      },
+                      get_tags(){
+                        $.ajax({
+                          url:"tag",
+                          type:"get",
+                          context:this,//此处的this表示Vue对象
+                          success:function(data,status){
+                            //data表示响应的body数据，status表示响应的状态码
+                            //HTTP请求执行成功之后，要执行的代码，在这个代码中更新数据
+                            //如果不设置context，此时直接使用this.blogs是会出错的，因为此时this表示当前$这样的JQuery对象
+                            this.tags=data;
+                          }
 
-                        
-                       
+                        })
                       },
                       delete_tag(tag_id){
                         $.ajax({
                           type:"delete",
-                          url:'./tag/'+tag_id,
+                          url:'/tag/'+tag_id,
                           context: this,
                           success:function(data,status){
+                            this.get_tags();
                             this.get_blogs();
-                            alert("删除成功！");
+                            alert("删除标签成功！");
                           }
                         })
                       },
-                      
+                      new_tag(){
+                        var value = document.getElementById("textId").value 
+                        var body={
+                          tag_name:value,//此处需要新建的内容
+                        }
+
+                        $.ajax({
+                          type:"post",
+                          url:"/tag",
+                          data:JSON.stringify(body),
+                          contentType:'application/json;charset=utf-8',
+                          context:this,
+                          success:function(data,status){
+                            this.get_tags();
+                            alert("新建标签成功！");
+                          }
+                        })
+                      }
                     
                     
                     }
