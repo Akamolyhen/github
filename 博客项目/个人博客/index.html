@@ -58,10 +58,11 @@
 
     </div>
     <!--先使用editor.md完成markdown到html的转换-->
-    <div class="am-u-md-8 am-u-sm-12" v-show="blog.blog_id!=null">
+    <div class="am-u-md-8 am-u-sm-12" v-show="blog.blog_id!=null" v-cloak>
          <article id="viewblog">
 
          </article>
+         <button type="button" class="am-btn am-btn-danger am-round" v-on:click="back()">Back</button>
     </div>
 
     <div class="am-u-md-4 am-u-sm-12 blog-sidebar">
@@ -92,7 +93,7 @@
       
             </div>
         </div>
-
+        <button type="button" class="am-btn am-btn-danger am-round" v-on:click="get_blogs()">Back</button>
     </div>
 </div>
 <!-- content end -->
@@ -221,6 +222,9 @@
                     });
                           }
                         })
+                      },
+                      back(){
+                        this.blog={};
                       }
                     
                      }

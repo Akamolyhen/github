@@ -41,7 +41,8 @@
 <!-- content srart -->
 <div class="am-g am-g-fixed blog-fixed" id="app">
     <div class="am-u-md-8 am-u-sm-12" v-show="blog.blog_id==null" v-cloak>
-      <button type="button" class="am-btn am-btn-success am-round" v-on:click="New_blog()">New Blog</button>
+      <a href="http://39.105.132.253:9093/newblog.html"><button type="button" class="am-btn am-btn-success am-round">New Blog</button></a>
+      
         <article class="am-g blog-entry-article" v-for="blog in blogs" v-cloak>
          
             <div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-text">
@@ -117,14 +118,7 @@
         </div>
         <button type="button" class="am-btn am-btn-danger am-round" v-on:click="get_blogs()">Back</button>
     </div>
-    <div>
-      <article id="test-editormd">
-      
-        <textarea># WelCome Edit
-  
-        </textarea>
-      </article>
-    </div>
+   
     
 
   </div>
@@ -312,15 +306,7 @@
                           }
                         })
                       },
-                      New_blog(){
-             
-            testEditor = editormd("test-editormd", {
-                width   : "100%",
-                height  : "700px",
-                syncScrolling : "single",
-                path    : "editor.md/lib/"
-            });  
-                      },
+                     
                       get_tags(){
                         $.ajax({
                           url:"tag",
