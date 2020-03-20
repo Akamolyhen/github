@@ -12,7 +12,7 @@
 
 -(void) print;
 -(void) setNumber:(int) n;
--(void) setDenominator:(int) d;
+-(void) setDenominator:(int) d;//-（）告诉编译器这是一种实例方法
 
 @end
 
@@ -37,13 +37,20 @@ int denominator;
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         // insert code here...
-        Fraction *myFraction;
+        Fraction *myFraction,*myFraction1;
         myFraction=[Fraction alloc];
         myFraction=[myFraction init];
+        //myFraction=[[Fraction alloc]init];
+        myFraction1=[Fraction alloc];
+        myFraction1=[myFraction1 init];
         [myFraction setNumber:1];
         [myFraction setDenominator:3];
+        [myFraction1 setNumber:2];
+        [myFraction1 setDenominator:3];
         NSLog(@"The value of myFraction is:");
         [myFraction print];
+        NSLog(@"The value of myFraction1 is:");
+        [myFraction1 print];
     }
     return 0;
 }
