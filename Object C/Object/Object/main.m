@@ -13,13 +13,20 @@
 -(void) print;
 -(void) setNumber:(int) n;
 -(void) setDenominator:(int) d;//-（）告诉编译器这是一种实例方法
-
+-(int) numerator;
+-(int) denominator;
 @end
 
 @implementation Fraction
 {
-int numerator;
-int denominator;
+    int numerator;
+    int denominator;
+}
+-(int)  numerator{
+    return numerator;
+}
+-(int)  denominator{
+    return denominator;
 }
 
 -(void) print{
@@ -47,7 +54,7 @@ int main(int argc, const char * argv[]) {
         [myFraction setDenominator:3];
         [myFraction1 setNumber:2];
         [myFraction1 setDenominator:3];
-        NSLog(@"The value of myFraction is:");
+        NSLog(@"The value of myFraction is:%i/%i",[myFraction numerator],[myFraction denominator]);
         [myFraction print];
         NSLog(@"The value of myFraction1 is:");
         [myFraction1 print];
