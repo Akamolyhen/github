@@ -101,6 +101,7 @@ int main(){
     return 0;
     
 }*/
+#define NSLog(FORMAT, ...) printf("%s\n", [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String])
 #import <Foundation/Foundation.h>
 
 // --------------------------------------------------
@@ -143,26 +144,21 @@ NSString *colorName (ShapeColor color)
     
 } // colorName
 
-
-// --------------------------------------------------
-// All about Circles
-
-@interface Circle : NSObject
+@interface Shape : NSObject
 {
     ShapeColor    fillColor;
     ShapeRect    bounds;
 }
-
 - (void) setFillColor: (ShapeColor) fillColor;
 
 - (void) setBounds: (ShapeRect) bounds;
 
 - (void) draw;
+    
 
-@end // Circle
+@end
 
-
-@implementation Circle
+@implementation Shape
 
 - (void) setFillColor: (ShapeColor) c
 {
@@ -174,6 +170,24 @@ NSString *colorName (ShapeColor color)
 {
     bounds = b;
 } // setBounds
+
+
+- (void) draw
+{
+    
+} // draw
+
+@end
+// --------------------------------------------------
+// All about Circles
+
+@interface Circle :Shape
+
+
+@end // Circle
+
+
+@implementation Circle
 
 
 - (void) draw
@@ -192,33 +206,14 @@ NSString *colorName (ShapeColor color)
 // --------------------------------------------------
 // All about Rectangles
 
-@interface Rectangle : NSObject
-{
-    ShapeColor    fillColor;
-    ShapeRect    bounds;
-}
+@interface Rectangle : Shape
 
-- (void) setFillColor: (ShapeColor) fillColor;
-
-- (void) setBounds: (ShapeRect) bounds;
-
-- (void) draw;
 
 @end // Rectangle
 
 
 @implementation Rectangle
 
-- (void) setFillColor: (ShapeColor) c
-{
-    fillColor = c;
-} // setFillColor
-
-
-- (void) setBounds: (ShapeRect) b
-{
-    bounds = b;
-} // setBounds
 
 
 - (void) draw
@@ -235,33 +230,14 @@ NSString *colorName (ShapeColor color)
 // --------------------------------------------------
 // All about OblateSphereoids
 
-@interface OblateSphereoid : NSObject
-{
-    ShapeColor    fillColor;
-    ShapeRect    bounds;
-}
-
-- (void) setFillColor: (ShapeColor) fillColor;
-
-- (void) setBounds: (ShapeRect) bounds;
-
-- (void) draw;
+@interface OblateSphereoid : Shape
 
 @end // OblateSphereoid
 
 
 @implementation OblateSphereoid
 
-- (void) setFillColor: (ShapeColor) c
-{
-    fillColor = c;
-} // setFillColor
 
-
-- (void) setBounds: (ShapeRect) b
-{
-    bounds = b;
-} // setBounds
 
 
 - (void) draw
@@ -279,33 +255,14 @@ NSString *colorName (ShapeColor color)
 // --------------------------------------------------
 // All about Triangles
 
-@interface Triangle : NSObject
-{
-    ShapeColor    fillColor;
-    ShapeRect    bounds;
-}
-
-- (void) setFillColor: (ShapeColor) fillColor;
-
-- (void) setBounds: (ShapeRect) bounds;
-
-- (void) draw;
+@interface Triangle : Shape
 
 @end // Triangle
 
 
 @implementation Triangle
 
-- (void) setFillColor: (ShapeColor) c
-{
-    fillColor = c;
-} // setFillColor
 
-
-- (void) setBounds: (ShapeRect) b
-{
-    bounds = b;
-} // setBounds
 
 
 - (void) draw
@@ -318,7 +275,12 @@ NSString *colorName (ShapeColor color)
 
 @end // Triangle
 
+@interface RoundedRectangle : Shape
+{
+    int radius;
+}
 
+@end
 // --------------------------------------------------
 // Draw the shapes
 
