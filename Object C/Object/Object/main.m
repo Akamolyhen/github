@@ -282,7 +282,8 @@ NSString *colorName (ShapeColor color)
 
 @end
 // --------------------------------------------------
-// Draw the shapes
+// Draw the shapes 哈哈
+
 
 void drawShapes (id shapes[], int count)
 {
