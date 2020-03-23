@@ -1,107 +1,3 @@
-//
-//  main.m
-//  Object
-//
-//  Created by 恶龙咆哮 on 2020/3/20.
-//  Copyright © 2020 秦伟钦. All rights reserved.
-//
-
-/*#import <Foundation/Foundation.h>
-
-@interface Fraction : NSObject
-
--(void) print;
--(void) setNumber:(int) n;
--(void) setDenominator:(int) d;//-（）告诉编译器这是一种实例方法
--(int) numerator;
--(int) denominator;
-@end
-
-@implementation Fraction
-{
-    int numerator;
-    int denominator;
-}
--(int)  numerator{
-    return numerator;
-}
--(int)  denominator{
-    return denominator;
-}
-
--(void) print{
-    NSLog(@"%i/%i",numerator,denominator);
-}
-
--(void) setNumber:(int)n{
-    numerator=n;
-}
--(void) setDenominator:(int)d{
-    denominator=d;
-}
-@end
-
-int main(int argc, const char * argv[]) {
-    @autoreleasepool {
-        // insert code here...
-        Fraction *myFraction,*myFraction1;
-        myFraction=[Fraction alloc];
-        myFraction=[myFraction init];
-        //myFraction=[[Fraction alloc]init];
-        myFraction1=[Fraction alloc];
-        myFraction1=[myFraction1 init];
-        [myFraction setNumber:1];
-        [myFraction setDenominator:3];
-        [myFraction1 setNumber:2];
-        [myFraction1 setDenominator:3];
-        NSLog(@"The value of myFraction is:%i/%i",[myFraction numerator],[myFraction denominator]);
-        [myFraction print];
-        NSLog(@"The value of myFraction1 is:");
-        [myFraction1 print];
-    }
-    return 0;
-}
-*/
-/*#import <Foundation/Foundation.h>
-
-int main(int argc, const char * argv[]) {
-    @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello,Objective-C!");
-        
-    }
-    return 0;
-}
-*/
-
-
-/*BOOL areIntsDifferent(int thing1,int thing2){
-    if(thing1==thing2){
-        return NO;}
-    else{
-        return YES;}
-}
-
-
-NSString *boolString (BOOL yesNO)
-{
-    if(yesNO==NO){
-        return(@"NO");
-    }
-    else{
-        return (@"YES");}
-}
-
-int main(){
-    BOOL areTheyDifferent;
-    areTheyDifferent=areIntsDifferent(5, 5);
-    NSLog(@"are %d and %d different? %@",5,5,boolString(areTheyDifferent));
-    areTheyDifferent=areIntsDifferent(23, 45);
-    NSLog(@"are %d and %d different? %@",23,45,boolString(areTheyDifferent));
-    return 0;
-    
-}*/
-#define NSLog(FORMAT, ...) printf("%s\n", [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String])
 #import <Foundation/Foundation.h>
 
 // --------------------------------------------------
@@ -128,35 +24,43 @@ typedef struct {
 
 NSString *colorName (ShapeColor color)
 {
+    NSString *colorName;
+    
     switch (color) {
         case kRedColor:
-            return @"red";
+            colorName = @"red";
             break;
         case kGreenColor:
-            return @"green";
+            colorName = @"green";
             break;
         case kBlueColor:
-            return @"blue";
+            colorName = @"blue";
+            break;
+        default:
+            colorName = @"oops! Unexpected color";
             break;
     }
     
-    return @"no color";
+    return (colorName);
     
 } // colorName
 
+
+// --------------------------------------------------
+// Shapes base class
+
 @interface Shape : NSObject
 {
-    ShapeColor    fillColor;
-    ShapeRect    bounds;
+    ShapeColor  fillColor;
+    ShapeRect   bounds;
 }
+
 - (void) setFillColor: (ShapeColor) fillColor;
-
 - (void) setBounds: (ShapeRect) bounds;
-
 - (void) draw;
-    
 
-@end
+@end // Shape
+
 
 @implementation Shape
 
@@ -165,37 +69,63 @@ NSString *colorName (ShapeColor color)
     fillColor = c;
 } // setFillColor
 
-
 - (void) setBounds: (ShapeRect) b
 {
     bounds = b;
 } // setBounds
 
+- (void) draw
+{
+} // draw
+
+@end // Shape
+
+
+
+
+// --------------------------------------------------
+// All about Triangles
+
+@interface Triangle : Shape
+@end // Triangle
+
+
+@implementation Triangle
 
 - (void) draw
 {
-    
+    NSLog (@"drawing a triangle at (%d %d %d %d) in %@",
+           bounds.x, bounds.y,
+           bounds.width, bounds.height,
+           colorName(fillColor));
 } // draw
 
-@end
+@end // Triangle
+
+
+
+
 // --------------------------------------------------
 // All about Circles
 
-@interface Circle :Shape
-
+@interface Circle : Shape
 
 @end // Circle
 
 
 @implementation Circle
--(void) setFillColor:(ShapeColor) c
+
+// I'm new!
+- (void) setFillColor: (ShapeColor) c
 {
-    if(c==kRedColor)
-    {
-        c=kGreenColor;
+    if (c == kRedColor) {
+        c = kGreenColor;
     }
-    [super setFillColor:c];
-}
+    
+    [super setFillColor: c];
+    
+} // setFillColor
+
 
 - (void) draw
 {
@@ -215,13 +145,10 @@ NSString *colorName (ShapeColor color)
 
 @interface Rectangle : Shape
 
-
 @end // Rectangle
 
 
 @implementation Rectangle
-
-
 
 - (void) draw
 {
@@ -244,9 +171,6 @@ NSString *colorName (ShapeColor color)
 
 @implementation OblateSphereoid
 
-
-
-
 - (void) draw
 {
     NSLog (@"drawing an egg at (%d %d %d %d) in %@",
@@ -260,37 +184,7 @@ NSString *colorName (ShapeColor color)
 
 
 // --------------------------------------------------
-// All about Triangles
-
-@interface Triangle : Shape
-
-@end // Triangle
-
-
-@implementation Triangle
-
-
-
-
-- (void) draw
-{
-    NSLog (@"drawing a triangle at (%d %d %d %d) in %@",
-           bounds.x, bounds.y,
-           bounds.width, bounds.height,
-           colorName(fillColor));
-} // draw
-
-@end // Triangle
-
-@interface RoundedRectangle : Shape
-{
-    int radius;
-}
-
-@end
-// --------------------------------------------------
-// Draw the shapes 哈哈
-
+// Draw the shapes
 
 void drawShapes (id shapes[], int count)
 {
