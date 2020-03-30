@@ -5,7 +5,7 @@
 //  Created by 恶龙咆哮 on 2020/3/30.
 //  Copyright © 2020 秦伟钦. All rights reserved.
 //
-#define High 100
+/*#define High 100
 #include <iostream>
 #include<math.h>
 
@@ -30,5 +30,18 @@ int main(int argc, const char * argv[]) {
     }
     
     printf("%f\t%f",ans1,ans2);
+    return 0;
+}*/
+#include <stdio.h>
+
+ int M = 3;
+
+int main()
+{
+    int n, s = 0;
+    scanf("%d", &n);
+    for (int i = 2; i <= n; ++i)
+        s = (s+M)%i;
+    printf("%d\n", s+1);
     return 0;
 }
