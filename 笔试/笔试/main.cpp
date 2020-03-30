@@ -32,7 +32,7 @@ int main(int argc, const char * argv[]) {
     printf("%f\t%f",ans1,ans2);
     return 0;
 }*/
-#include <stdio.h>
+/*#include <stdio.h>
 
  int M = 3;
 
@@ -40,8 +40,43 @@ int main()
 {
     int n, s = 0;
     scanf("%d", &n);
-    for (int i = 2; i <= n; ++i)
+    for (int i = 2; i <=n; ++i)
         s = (s+M)%i;
     printf("%d\n", s+1);
     return 0;
+}*/
+#include <iostream>
+#include <string.h>
+using namespace std;
+ 
+int dfs1(int num){
+    if(num == 0) return 1;
+    if(num < 0) return 0;
+    return dfs1(num - 1) + dfs1(num - 2);
 }
+ 
+int dfs2(int num){
+    if(num == 0) return 1;
+    if(num < 0) return 0;
+    return dfs2(num - 1) + dfs2(num - 2) + dfs2(num - 3);
+}
+ 
+int dfs3(int num){
+    if(num == 0) return 1;
+    if(num < 0) return 0;
+    return dfs3(num - 2) + dfs3(num - 3);
+}
+ 
+int main() {
+     
+    int n, a, b, c;
+    cin >> n;
+     
+    a = dfs1(n);
+    b = dfs2(n);
+    c = dfs3(n);
+     
+    cout << a << ' ' << b << ' ' << c << endl;
+    return 0;
+}
+
