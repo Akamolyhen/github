@@ -1,0 +1,15 @@
+﻿生成启动时间为 2019/4/2 星期二 19:34:19。
+     1>项目“G:\我的代码\list实现\list实现\list实现.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         D:\Visual Studio\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt test.cpp
+         test.cpp
+     1>g:\我的代码\list实现\list实现\test.cpp(8): error C2146: 语法错误: 缺少“,”(在标识符“val”的前面)
+                 g:\我的代码\list实现\list实现\test.cpp(11): 参见对正在编译的类 模板 实例化“ListNode<T>”的引用
+     1>g:\我的代码\list实现\list实现\test.cpp(8): error C2065: “val”: 未声明的标识符
+     1>g:\我的代码\list实现\list实现\test.cpp(8): error C2977: “ListNode”: 模板 参数太多
+                 g:\我的代码\list实现\list实现\test.cpp(7) : 参见“ListNode”的声明
+     1>已完成生成项目“G:\我的代码\list实现\list实现\list实现.vcxproj”(Build 个目标)的操作 - 失败。
+
+生成失败。
+
+已用时间 00:00:00.54
