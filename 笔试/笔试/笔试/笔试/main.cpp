@@ -7,9 +7,22 @@
 //
 
 #include <iostream>
-
+#include<string>
+using namespace std;
 int main(int argc, const char * argv[]) {
     // insert code here...
-    std::cout << "Hello, World!\n";
+    char* str1 = "01234567891";
+    cout<<strlen(str1)<<endl;
     return 0;
+}
+void test2()
+{
+ char string[10], str1[10];
+ int i;
+ for(i=0; i<10; i++)
+ {
+ str1[i]  = 'a';
+ }
+    str1[9]='\0';
+strcpy( string, str1 );
 }
