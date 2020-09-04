@@ -6,7 +6,7 @@
 //  Copyright © 2020 秦伟钦. All rights reserved.
 //
 
-#include <iostream>
+/*#include <iostream>
 #include<string>
 using namespace std;
 int main(int argc, const char * argv[]) {
@@ -25,4 +25,38 @@ void test2()
  }
     str1[9]='\0';
 strcpy( string, str1 );
+}
+*/
+
+#include<iostream>
+#include<string>
+using namespace std;
+const int N=1005;
+int main()
+{
+    string s;
+    cin>>s;
+    int index[26]={0};
+    for(int i=0;i<s.size();i++)
+    {
+        index[s[i]-'A']=max(index[s[i]-'A'],i);
+    }
+    int st=-1;
+    int maxx=0;
+    int vis[26]={0};
+    for(int i=0;i<s.size();i++)
+    {
+        if(!vis[s[i]-'A'])
+        {
+            vis[s[i]-'A']=1;
+            maxx=max(maxx,index[s[i]-'A']);
+        }
+        if(i>=maxx)
+        {
+            cout<<i-st<<"";
+            st=i;
+        }
+        cout<<endl;
+        return 0;
+    }
 }
