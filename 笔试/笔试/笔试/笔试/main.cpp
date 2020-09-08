@@ -28,7 +28,7 @@ strcpy( string, str1 );
 }
 */
 
-#include<iostream>
+/*#include<iostream>
 #include<string>
 using namespace std;
 const int N=1005;
@@ -60,3 +60,10 @@ int main()
         return 0;
     }
 }
+*/
+
+//小Q的歌单
+#include<iostream>
+using namespace std;
+long long c[105][105];
+
