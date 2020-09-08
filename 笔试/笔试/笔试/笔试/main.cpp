@@ -63,10 +63,11 @@ int main()
 */
 
 //小Q的歌单
-#include<iostream>
+/*#include<iostream>
 using namespace std;
-long long c[105][105];
+long long c[105][105];//多申请存储空间
 const int mod=1000000007;
+/// 利用杨辉三角
 void init()
 {
     c[0][0]=1;
@@ -102,4 +103,7 @@ int main()
    }
          
    
-}
+}*/
+
+
+
