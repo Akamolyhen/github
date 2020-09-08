@@ -66,4 +66,40 @@ int main()
 #include<iostream>
 using namespace std;
 long long c[105][105];
+const int mod=1000000007;
+void init()
+{
+    c[0][0]=1;
+    for(int i=1;i<=100;i++)
+    {
+        c[i][0]=1;
+        for(int j=1;j<100;j++)
+        {
+            c[i][j]=(c[i-1][j-1]+c[i-1][j])%mod;
+        }
+    }
+}
 
+int main()
+{
+    init();
+    int i,j,k,a,x,b,y;
+    long long sum=0;
+   while( cin>>k>>a>>x>>b>>y)
+   {if(a!=b)
+        {
+            for(i=0;i<=x;i++)
+            for(j=0;j<=y;j++)
+                {
+                    if((i*a+j*b)>k)
+                        break;
+                    if((i*a+j*b)==k)
+                        sum+=c[x][i]*c[y][j];
+                }
+          cout<<sum<<endl;
+          return 0;
+        }
+   }
+         
+   
+}
