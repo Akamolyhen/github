@@ -188,6 +188,7 @@ int main()
             temp-=now;
             now=(now+1)/2;
         }
+ 
         if(ok)
         {
             left=mid;
@@ -201,5 +202,33 @@ int main()
 }
 */
 
+//纸牌游戏
+#include<iostream>
+using namespace std;
+const int maxn=1e5+10;
+int a[maxn];
+int n;
+int cmp(int x,int y)
+{
+    return x>y;
+}
+
+int main()
+{
+    cin>>n;
+    for(int i=0;i<n;i++)
+        cin>>a[i];
+    sort(a,a+n,cmp);
+    int ans=0;
+    for(int i=0;i<n;i++)
+    {
+        if(i%2==0)
+            ans+=a[i];
+        else
+            ans-=a[i];
+    }
+    cout<<ans<<endl;
+    return 0;
+}
 
 
