@@ -161,7 +161,7 @@ int main()
 */
 
 
-
+/*
 //贪吃的小Q
 #include<iostream>
 using namespace std;
@@ -184,6 +184,7 @@ int main()
                 ok=false;
                 break;
             }
+ 
             temp-=now;
             now=(now+1)/2;
         }
@@ -198,5 +199,7 @@ int main()
     cout<<left<<endl;
     return 0;
 }
+*/
+
 
 
