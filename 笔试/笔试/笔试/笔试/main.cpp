@@ -162,6 +162,41 @@ int main()
 
 
 
-
+//贪吃的小Q
+#include<iostream>
+using namespace std;
+int main()
+{
+    int n,m,temp,now,mid;//temp:现在所剩的巧克力 now:每天吃的巧克力
+    bool ok;
+    cin>>n>>m;
+    int left=1,right=m;
+    while(left!=right)
+    {
+        ok=true;
+        mid=(left+right+1)/2;//二分法
+        temp=m;
+        now=mid;
+        for(int j=0;j<n;j++)
+        {
+            if(temp<now)
+            {
+                ok=false;
+                break;
+            }
+            temp-=now;
+            now=(now+1)/2;
+        }
+        if(ok)
+        {
+            left=mid;
+        }
+        else
+            right=mid-1;
+        
+    }
+    cout<<left<<endl;
+    return 0;
+}
 
 
