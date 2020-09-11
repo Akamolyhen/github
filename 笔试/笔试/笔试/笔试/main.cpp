@@ -286,7 +286,7 @@ int main() {
 
 
 //整除
-#include<iostream>
+/*#include<iostream>
 using namespace std;
 const int maxn=1e5+5;
 int tmp[maxn];
@@ -317,4 +317,36 @@ int main()
     }
     cout<<res<<endl;
     return 0;
+    
+
+
+
+
+
+
+}*/
+
+/*#include<iostream>
+using namespace std;
+string s;
+int main()
+{
+    cin>>s;
+    char c=s[0];
+    double n=1,d,res;
+    for(int i=1;i<s.length();i++){
+        if(c!=s[i]){
+            c=s[i];
+            n++;
+        }
+       
+       
+        
+    }
+     d=(double)s.size()/n;
+     res=(int)((d+5e-3)*100)/100.00;
+    cout<<res<<endl;
 }
+*/
+
+
