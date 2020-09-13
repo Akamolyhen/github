@@ -348,5 +348,123 @@ int main()
     cout<<res<<endl;
 }
 */
+/*#include <bits/stdc++.h>
+
+using namespace std;
+const int maxn=50+5;
+int n, L;
+int parent[maxn];
+int dp[200];
+int main()
+{
+      while (cin >> n >> L) {
+       for (int i = 1; i <= n - 1; i++) {
+           cin >> parent[i];
+       }
+       dp[0] = 0; int hight = 0;
+       for (int i = 1; i <= n - 1; i++) {
+           dp[i] = dp[parent[i]] + 1;
+           hight = max(hight, dp[i]);//求出树的深度
+       }
+       if (L <= hight) { cout << L + 1 << endl;  return 0;}
+       else {
+           cout << min(n, hight + 1 + (L - hight) / 2)<<endl;
+           return 0;
+          
+       }//注意最多也就是把所有的城市都游完
+ }*/
+   
 
 
+
+
+
+/*#include<iostream>
+using namespace std;
+int n;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        cin>>n;
+        int cnt4=0,cnt2=0,cnt1=0;
+        for(int i=0;i<n;i++){
+            int x;
+            cin>>x;
+            if(x%4==0)
+            cnt4++;
+            else if(x%2==0)
+            cnt2++;
+            else cnt1++;
+        }
+        if(cnt2==0){
+            if(cnt4>=cnt1-1)
+            cout<<"Yes"<<endl;
+            else
+            cout<<"No"<<endl;
+        }
+        else{
+            if(cnt4>=cnt1)
+            cout<<"Yes"<<endl;
+            else
+            cout<<"No"<<endl;
+        }
+    }
+    return 0;
+}
+
+*/
+
+#include<bits/stdc++.h>
+using namespace std;
+const int maxn=50+5;
+int x[maxn],y[maxn];
+int n;
+int solve(){
+    if(n<=2)
+        return n;
+    int res=1;
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            if(i!=j){
+                int dx1=x[j]-x[i];
+                int dy1=y[j]-y[i];
+                for(int k=0;k<n;k++){
+                    if(i!=k&&j!=k){
+                        int cnt=0;
+                        if(i!=k&&j!=k)
+                        {
+                            for(int r=0;r<n;r++){
+                                int dx2=x[r]-x[i];
+                                int dy2=y[r]-y[i];
+                                if(dy1*dx2==dy2*dx1){
+                                    cnt++;
+                                }
+                                else{
+                                    dx2=x[r]-x[k];
+                                    dy2=y[r]-y[k];
+                                    if(dy1*dy2==-dx2*dy1){
+                                        cnt++;
+                                    }
+                                }
+                            }
+                        }
+                        res=max(res,cnt);
+                    }
+                }
+            }
+        }
+    }
+    return res;
+}
+
+int main()
+{
+    cin>>n;
+    for(int i=0;i<n;i++)
+        cin>>x[i];
+    for(int i=0;i<n;i++)
+        cin>>y[i];
+    cout<<solve()<<endl;
+    
+}
