@@ -472,20 +472,8 @@ int main()
 */
 
 #include<bits/stdc++.h>
-#include<cstring>
 using namespace std;
-char* Getmemory(char* str)
-{
-    str=(char*)malloc(255);
-    return str;
-}
 int main()
 {
-    char *p=NULL;
-    p=Getmemory(p);
-    string s="hello world";
-    strcpy(p, s);
-    cout<<p<<endl;
-    free(p);
     
 }
