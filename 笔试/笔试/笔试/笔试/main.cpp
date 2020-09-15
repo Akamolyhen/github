@@ -473,7 +473,20 @@ int main()
 
 #include<bits/stdc++.h>
 using namespace std;
+void TestFree()
+{
+    char* str=new char[10];
+    strcpy(str,"hello");
+    delete[](str);
+    if(str!=NULL)
+    {
+        cout<<str<<endl;
+        str=NULL;
+    }
+    
+}
 int main()
 {
-    
+    TestFree();
+    return 0;
 }
