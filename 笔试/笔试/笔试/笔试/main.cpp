@@ -470,11 +470,12 @@ int main()
 }
 
 */
-
+/*
 #include<bits/stdc++.h>
 using namespace std;
 void TestFree()
 {
+    
     char* str=new char[10];
     strcpy(str,"hello");
     delete[](str);
@@ -485,8 +486,40 @@ void TestFree()
     }
     
 }
+void test(char str[20]);
 int main()
 {
-    TestFree();
+    char s[]="dgs";
+    char str[20];
+    cout<<sizeof(s)/sizeof(char)<<endl;
+    cout<<strlen(s)<<endl;
+    int *a;
+    int * &p=a;
+    int b=8;
+    p=&b;
+    
+     
+    test(str);
+    //TestFree();
     return 0;
 }
+void test(char str[20])
+{
+    strcpy(str,"Hello!");
+     cout<<strlen(str)<<endl;
+  
+}
+*/
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+
+{
+    int x=5,y=3;
+    int a=(x&y)+((x^y)>>1);
+    cout<<a<<endl;
+    return 0;
+}
+
