@@ -510,16 +510,137 @@ void test(char str[20])
   
 }
 */
-
-#include<bits/stdc++.h>
+/*#include<bits/stdc++.h>
 using namespace std;
-
+/// 只用逻辑运算实现乘法运算
+int mul(int a,int b)
+{
+    bool neg=(b<0);
+    if(b<0)
+        b=-b;
+    int sum=0;
+    map<int,int> bit_map;
+    for(int i=0;i<32;i++)
+    {
+        bit_map.insert(pair<int,int>(1<<i,i));
+    }
+    while(b>0)
+    {
+        int last_bit=bit_map[b&~(b-1)];
+        sum+=(a<<last_bit);
+        b&=b-1;
+    }
+    if(neg)
+        sum=-sum;
+    return  sum;
+}
 int main()
 
 {
-    int x=5,y=3;
-    int a=(x&y)+((x^y)>>1);
-    cout<<a<<endl;
+    cout<<mul(3, 5)<<endl;
     return 0;
 }
 
+*/
+
+
+/*#include<bits/stdc++.h>
+using namespace std;
+int add2(int num,...){
+    va_list arg_ptr;
+    int i;
+    int sum=0;
+    va_start(arg_ptr, num);
+    for(i=0;i<num;i++)
+    {
+        sum+=va_arg(arg_ptr, int);
+    }
+    va_end(arg_ptr);
+    return sum;
+}
+int main()
+{
+    int i=1,j=2,k=3;
+    cout<<add2(3,i,j,k)<<endl;
+    return 0;
+}
+*/
+
+/*#include<bits/stdc++.h>
+using namespace std;
+
+char _map[1000][1000];
+int main()
+
+{
+    int i,j,m,n,tot;
+    char ch='A';
+    cin>>m>>n;
+    /*for(int i=0;i<m;i++)
+    for(int j=0;j<n;j++)
+    _map[i][j]='0';*/
+ /*   memset(_map, '0', sizeof(_map));
+    i=j=tot=0;
+    _map[i][j]='A';
+    while(tot<n*m-1)
+    {
+        while(j+1<n&&_map[i][j+1]=='0')
+        {
+            if(ch>=90)
+                ch-=26;
+            j++;
+            ch++;
+            _map[i][j]=ch;
+            tot++;
+        }
+        while(i+1<m&&_map[i+1][j]=='0')
+        {
+            if(ch>=90)
+                ch-=26;
+            i++;
+            ch++;
+            _map[i][j]=ch;
+            tot++;
+        }
+        while(j-1>=0&&_map[i][j-1]=='0')
+        {
+            if(ch>=90)
+                ch-=26;
+            j--;
+            ch++;
+            _map[i][j]=ch;
+            tot++;
+        }
+        while(i-1>=0&&_map[i-1][j]=='0')
+        {
+            if(ch>=90)
+                ch-=26;
+            i--;
+            ch++;
+            _map[i][j]=ch;
+            tot++;
+        }
+    }
+    for(i=0;i<m;i++)
+    {
+        for(j=0;j<n;j++)
+        {
+            cout<<_map[i][j]<<"  ";
+        }
+        cout<<endl;
+    }
+    return 0;
+            
+}
+*/
+
+
+#include<bits/stdc++.h>
+using namespace std;
+bool isMatch(string s,string p)
+{
+    bool dp[s.length()+1][p.length()+1]={};
+    dp[s.length()][p.length()]=1;
+    for(int i=s.length());i>=0;i--)
+    for(int j=p
+}
