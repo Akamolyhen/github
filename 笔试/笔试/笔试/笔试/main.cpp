@@ -642,5 +642,5 @@ bool isMatch(string s,string p)
     bool dp[s.length()+1][p.length()+1]={};
     dp[s.length()][p.length()]=1;
     for(int i=s.length());i>=0;i--)
-    for(int j=p
+    for(int j=pk
 }
