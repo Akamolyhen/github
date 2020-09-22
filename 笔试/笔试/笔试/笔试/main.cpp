@@ -670,7 +670,26 @@ int myatoi(const char* str)
     }
     return nResult*nSign;
 }
-
+char* myitoa(int num,char *str)
+{
+    char* ptr=str;
+    int temp;
+    int sign=num,i=0,j=0;
+    if(sign<0)
+    {
+        num=-num;
+    }
+    while(num)
+    {
+        *ptr++=num%radix+'0';
+        num/=radix;
+        if(num<radix)
+        {
+            *ptr++=num+'0';
+            
+        }
+    }
+}
 int main()
 {
     const char *str="null";
