@@ -636,11 +636,44 @@ int main()
 
 
 #include<bits/stdc++.h>
+#define radix 10
 using namespace std;
-bool isMatch(string s,string p)
+
+int myatoi(const char* str)
 {
-    bool dp[s.length()+1][p.length()+1]={};
-    dp[s.length()][p.length()]=1;
-    for(int i=s.length());i>=0;i--)
-    for(int j=pk
+    assert(str!=NULL);
+    while(*str==' ')
+    {
+        str++;
+    }
+    int nSign=(*str=='-')? -1:1;//确定符号位
+    if(*str=='+'||*str=='-')
+    {
+        str++;
+    }
+    int nResult=0;
+    while(*str>'0'&&*str<'9')
+    {
+        nResult=nResult*radix+(*str-'0');
+        str++;
+    }
+    while(*str==' ')
+    {
+        str++;
+        if(*str=='\0')
+            break;
+    }
+    if(*str!='\0')
+    {
+        cout<<"Invalid Input"<<endl;
+        return -1;
+    }
+    return nResult*nSign;
+}
+
+int main()
+{
+    const char *str="null";
+    cout<<myatoi(str)<<endl;
+    return 0;
 }
