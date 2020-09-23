@@ -634,7 +634,7 @@ int main()
 }
 */
 
-
+/*
 #include<bits/stdc++.h>
 #define radix 10
 using namespace std;
@@ -670,7 +670,7 @@ int myatoi(const char* str)
     }
     return nResult*nSign;
 }
-char* myitoa(int num,char *str)
+char* myitoa(int num,char* str)
 {
     char* ptr=str;
     int temp;
@@ -681,18 +681,38 @@ char* myitoa(int num,char *str)
     }
     while(num)
     {
-        *ptr++=num%radix+'0';
+        *ptr++ = num%radix+'0';
         num/=radix;
         if(num<radix)
         {
             *ptr++=num+'0';
-            
+            break;
         }
     }
+    if(sign<0)
+    {
+        *ptr++='-';
+    }
+    *ptr='\0';
+    j=(int)(ptr-str-1);
+    for(i=0;i<j;i++,j--)
+    {
+        temp=str[i];
+        str[i]=str[j];
+        str[j]=temp;
+       
+    }
+    return str;
 }
 int main()
 {
-    const char *str="null";
+    const char *str="  -6545  ";
+    char str1[10];
     cout<<myatoi(str)<<endl;
+    cout<<myitoa(-34233, str1)<<endl;
     return 0;
 }
+*/
+#include<bits/stdc++.h>
+using namespace std;
+
