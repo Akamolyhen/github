@@ -605,7 +605,7 @@ int main()
         while(j-1>=0&&_map[i][j-1]=='0')
         {
             if(ch>=90)
-                ch-=26;
+                 ch-=26;
             j--;
             ch++;
             _map[i][j]=ch;
@@ -713,6 +713,33 @@ int main()
     return 0;
 }
 */
-#include<bits/stdc++.h>
-using namespace std;
+/*#include<bits/stdc++.h>
 
+using namespace std;
+int main()
+{
+    
+}
+*/
+#include<iostream>
+#include<map>
+using namespace std;
+bool findMost(int *a,int size,int &val){
+    if(size==0)
+        return false;
+    map<int,int> m;
+    for(int i=0;i<size;i++)
+    {
+        if(++m[a[i]]>=m[val])
+            val=a[i];
+    }
+    return true;
+}
+int main()
+{
+    int a[]={1,2,3,4,4,4,5,5,5,5,6};
+    int val=0;
+    if(findMost(a, 11, val))
+        cout<<val<<endl;
+    return 0;
+}
