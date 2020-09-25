@@ -721,7 +721,7 @@ int main()
     
 }
 */
-#include<iostream>
+/*#include<iostream>
 #include<map>
 using namespace std;
 bool findMost(int *a,int size,int &val){
@@ -741,5 +741,40 @@ int main()
     int val=0;
     if(findMost(a, 11, val))
         cout<<val<<endl;
+    return 0;
+}
+*/
+#include<bits/stdc++.h>
+using namespace std;
+void findElemnt(int a[],int length)
+{
+    int s=0;
+    int i;
+    int k=0;
+    for(i=0;i<length;i++)
+    {
+        s^=a[i];
+    }
+    int s1=s;
+    int s2=s;
+    while(!(s1&1))
+    {
+        s1=s1>>1;
+        k++;
+    }
+    for(i=0;i<length;i++)
+    {
+        if((a[i]>>k)&1)
+            s^=a[i];
+        
+    }
+    cout<<s<<" "<<(s^s2)<<endl;
+}
+
+int main()
+{
+    int array[]={1,2,2,3,3,4,1,5};
+    int len=sizeof(array)/sizeof(array[0]);
+    findElemnt(array, len);
     return 0;
 }
