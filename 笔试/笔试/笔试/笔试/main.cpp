@@ -747,7 +747,7 @@ int main()
 #include<bits/stdc++.h>
 using namespace std;
 void findElemnt(int a[],int length)
-{5
+{
     int s=0;
     int i;
     int k=0;
