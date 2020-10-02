@@ -748,7 +748,7 @@ int main()
 using namespace std;
 void findElemnt(int a[],int length)
 {
-    int s=0；
+    int s=0;
     int i;
     int k=0;
     for(i=0;i<length;i++)
