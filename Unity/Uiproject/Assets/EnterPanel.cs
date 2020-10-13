@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class EnterPanel : MonoBehaviour
 {
     public Button btn_Enter;
+    public GameObject loginPanel;
     // Start is called before the first frame update
     //start 在物体显示出来自动调用一次
     void Start()
@@ -14,7 +15,10 @@ public class EnterPanel : MonoBehaviour
     }
     private void ShowLoginPanel()
     {
-        Debug.Log("登陆按钮被单击");
+        // Debug.Log("登陆按钮被单击");
+        loginPanel.SetActive(true);
+        this.gameObject.SetActive(false);
+
     }
 
     // Update is called once per frame
