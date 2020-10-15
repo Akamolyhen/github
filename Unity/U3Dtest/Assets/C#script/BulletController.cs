@@ -34,7 +34,7 @@ public class BulletController : MonoBehaviour
             Destroy(this.gameObject);
             
                 //播放爆炸特效
-                Instantiate(effectPrefab, collision.transform.position, Quaternion.identity);
+            Tool.InstantiateObj("Effect", collision.transform.position, Quaternion.identity);
                 Destroy(collision.gameObject);
                 Destroy(this.gameObject);
                 

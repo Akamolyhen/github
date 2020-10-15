@@ -11,11 +11,11 @@ public class EnemyCtrl : MonoBehaviour
     private NavMeshAgent nav;
     //敌人的寻路目标
     private GameObject tank;
-    private GameObject tankeffectprefab;
+   // private GameObject tankeffectprefab;
     // Start is called before the first frame update
     void Start()
     {
-        tankeffectprefab = Resources.Load<GameObject>("Effect");
+       // tankeffectprefab = Resources.Load<GameObject>("Effect");
         nav = this.gameObject.GetComponent<NavMeshAgent>();
         tank = GameObject.Find("Tank");
     }
@@ -31,7 +31,7 @@ public class EnemyCtrl : MonoBehaviour
     {
         if (collision.gameObject.name == "Tank")
         {
-            Instantiate(tankeffectprefab, collision.transform.position, Quaternion.identity);
+            Tool.InstantiateObj("Effect", collision.transform.position, Quaternion.identity);
             Destroy(collision.gameObject);
         }
     }

@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class Tool : MonoBehaviour
 {
-    //封装显示特效
-    public static void PlayEffect(GameObject go,Vector3 ps,Quaternion rs)
+    private Dictionary<string, GameObject> dicPrefab = new Dictionary<string, GameObject>();
+    //封装生成物体或特效
+    public static void InstantiateObj(string path,Vector3 ps,Quaternion rs)
     {
-        Instantiate(go,ps,rs);
+        //Instantiate(go, ps, rs);GameObject go
+
+        GameObject go = Resources.Load<GameObject>(path);
+        Instantiate(go, ps, rs);
     }
 }
