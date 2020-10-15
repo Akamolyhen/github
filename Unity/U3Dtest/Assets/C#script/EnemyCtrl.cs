@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyCtrl : MonoBehaviour
 {
+    
     private NavMeshAgent nav;
     //敌人的寻路目标
     private GameObject tank;
@@ -26,7 +29,7 @@ public class EnemyCtrl : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.name=="Tank")
+        if (collision.gameObject.name == "Tank")
         {
             Instantiate(tankeffectprefab, collision.transform.position, Quaternion.identity);
             Destroy(collision.gameObject);

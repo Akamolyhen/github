@@ -71,6 +71,7 @@
     <Compile Include="Assets\C#script\SearchCtrl.cs" />
     <Compile Include="Assets\C#script\TankContrlloer.cs" />
     <Compile Include="Assets\C#script\Test.cs" />
+    <Compile Include="Assets\C#script\Tool.cs" />
     <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\CFX_AutoStopLoopedEffect.cs" />
     <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\CFX_Demo_RandomDir.cs" />
     <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\CFX_Demo_RotateCamera.cs" />

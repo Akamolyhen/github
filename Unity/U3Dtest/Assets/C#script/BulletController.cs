@@ -5,15 +5,17 @@ using UnityEngine;
 public class BulletController : MonoBehaviour
 {
     private float speed = 100;
-    private static int count = 0;
-    private static int count1 = 0;
-    private static int count2 = 0;
+   
+    //private static int count1 = 0;
+    //private static int count2 = 0;
     // Start is called before the first frame update
     //爆炸特效的预制体
     private GameObject effectPrefab;
+    private GameCtrl gameCtrl;
     void Start()
     {
         effectPrefab = Resources.Load<GameObject>("Effect");
+        gameCtrl = GameObject.Find("GameCtrl").GetComponent<GameCtrl>();
         Destroy(this.gameObject,2f);
     }
 
@@ -25,43 +27,21 @@ public class BulletController : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         
-        if(collision.gameObject.name=="Enemy")
+        if(collision.gameObject.tag=="Enemy")
         {
-            count++;
+
+            gameCtrl.MinusEnemyCount();
             Destroy(this.gameObject);
-            if (count==5)
-            {
+            
                 //播放爆炸特效
                 Instantiate(effectPrefab, collision.transform.position, Quaternion.identity);
                 Destroy(collision.gameObject);
                 Destroy(this.gameObject);
-            }
+                
+            
             
         }
-        if (collision.gameObject.name == "Enemy1")
-        {
-            count1++;
-            Destroy(this.gameObject);
-            if (count1 == 5)
-            {
-                Instantiate(effectPrefab, collision.transform.position, Quaternion.identity);
-                Destroy(collision.gameObject);
-                Destroy(this.gameObject);
-            }
-
-        }
-        if (collision.gameObject.name == "Enemy2")
-        {
-            count2++;
-            Destroy(this.gameObject);
-            if (count2 == 5)
-            {
-                Instantiate(effectPrefab, collision.transform.position, Quaternion.identity);
-                Destroy(collision.gameObject);
-                Destroy(this.gameObject);
-            }
-
-        }
+        
     }
 
 }

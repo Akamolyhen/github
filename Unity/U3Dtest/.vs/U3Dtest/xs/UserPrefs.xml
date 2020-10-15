@@ -1,17 +1,15 @@
 ﻿<Properties StartupConfiguration="{475AC529-4C3C-7028-08DC-086B1E04B1CD}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/C#script/GameCtrl.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/C#script/BulletController.cs">
     <Files>
-      <File FileName="Assets/Test.cs" Line="37" Column="24" />
-      <File FileName="Assets/BulletController.cs" Line="50" Column="14" />
-      <File FileName="Assets/TankContrlloer.cs" Line="20" Column="71" />
-      <File FileName="Assets/Paoguancontroll.cs" Line="24" Column="69" />
-      <File FileName="Assets/EnemyCtrl.cs" Line="24" Column="23" />
-      <File FileName="Assets/C#script/GameCtrl.cs" Line="8" Column="23" />
+      <File FileName="Assets/C#script/GameCtrl.cs" Line="67" Column="24" />
+      <File FileName="Assets/C#script/BulletController.cs" Line="8" Column="1" />
+      <File FileName="Assets/C#script/EnemyCtrl.cs" Line="10" Column="5" />
+      <File FileName="Assets/C#script/Tool.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="80c22d0c-7121-48fc-97ea-d08c7ba48c98" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="f3ef3c60-6f69-4786-905b-c9b0f8af5127" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
