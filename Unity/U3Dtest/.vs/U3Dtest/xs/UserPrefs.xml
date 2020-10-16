@@ -1,15 +1,31 @@
 ﻿<Properties StartupConfiguration="{475AC529-4C3C-7028-08DC-086B1E04B1CD}|">
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/C#script/BulletController.cs">
     <Files>
-      <File FileName="Assets/C#script/GameCtrl.cs" Line="67" Column="24" />
-      <File FileName="Assets/C#script/BulletController.cs" Line="8" Column="1" />
-      <File FileName="Assets/C#script/EnemyCtrl.cs" Line="10" Column="5" />
-      <File FileName="Assets/C#script/Tool.cs" Line="1" Column="1" />
+      <File FileName="Assets/C#script/Tool.cs" Line="18" Column="32" />
+      <File FileName="Assets/C#script/GameCtrl.cs" Line="60" Column="40" />
+      <File FileName="Assets/C#script/BulletController.cs" Line="31" Column="10" />
+      <File FileName="Assets/C#script/EnemyCtrl.cs" Line="34" Column="93" />
+      <File FileName="Assets/C#script/TankContrlloer.cs" Line="44" Column="105" />
+      <File FileName="Assets/C#script/Test.cs" Line="4" Column="7" />
+      <File FileName="Assets/C#script/CameraFollow.cs" Line="25" Column="9" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="U3Dtest" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="C#script" expanded="True">
+                <Node name="BulletController.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="f3ef3c60-6f69-4786-905b-c9b0f8af5127" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="8a8b78d9-68a0-4418-a8cc-29e022121767" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -27,14 +27,14 @@ public class BulletController : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         
-        if(collision.gameObject.tag=="Enemy")
+        if(collision.gameObject.CompareTag("Enemy"))
         {
 
             gameCtrl.MinusEnemyCount();
             Destroy(this.gameObject);
             
                 //播放爆炸特效
-            Tool.InstantiateObj("Effect", collision.transform.position, Quaternion.identity);
+            Tool.Instance.InsObj("Effect", collision.transform.position, Quaternion.identity);
                 Destroy(collision.gameObject);
                 Destroy(this.gameObject);
                 

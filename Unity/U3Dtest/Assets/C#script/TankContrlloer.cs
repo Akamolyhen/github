@@ -27,7 +27,7 @@ public class TankContrlloer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bulletPrefab = gameCtrl.GetBullet();
+        //bulletPrefab = gameCtrl.GetBullet();
         float v = Input.GetAxis("Vertical");//获取垂直方向的输入
         float h = Input.GetAxis("Horizontal");//获取水平方向的输入
         //Debug.Log("水平方向的输入是" + h);//取值范围是-1～1
@@ -39,7 +39,12 @@ public class TankContrlloer : MonoBehaviour
         if (Input.GetMouseButtonDown(0))//GetMouseButtonDown获取鼠标单击（0左键，1右键，2滚轮)
         {
             if(!EventSystem.current.IsPointerOverGameObject())//判断鼠标是否在UI元素上面
-            Instantiate(bulletPrefab,startPsObj.transform.position,startPsObj.transform.rotation);
+            {
+                bulletPrefab = gameCtrl.GetBullet();
+                Instantiate(bulletPrefab, startPsObj.transform.position, startPsObj.transform.rotation);
+               
+            }
+            
         }
     }
 }

@@ -11,7 +11,7 @@ public class GameCtrl : MonoBehaviour
     GameObject bullet;
     GameObject Bigbullet;
     private GameObject currentBullet;
-    private GameObject enemyPrefab;
+    //private GameObject enemyPrefab;
     //敌人生成点
     private GameObject[] arrMaker;
     public int currentCount = 0;
@@ -20,9 +20,9 @@ public class GameCtrl : MonoBehaviour
     {
         btn_Change = GameObject.Find("Canvas/Btn_Change").GetComponent<Button>();
         btn_Change.onClick.AddListener(ChangeBullet);
-        bullet = Resources.Load<GameObject>("Bullet");
-        Bigbullet = Resources.Load<GameObject>("BigBullet");
-        enemyPrefab = Resources.Load<GameObject>("Enemy");
+        bullet = Tool.Instance.LoadObj("Bullet");
+        Bigbullet = Tool.Instance.LoadObj("BigBullet");
+        //enemyPrefab = Resources.Load<GameObject>("Enemy");
         currentBullet = bullet;
         arrMaker = GameObject.FindGameObjectsWithTag("EnemyMake");
     }
@@ -53,14 +53,14 @@ public class GameCtrl : MonoBehaviour
     }
     private void MakeEnemy()
     {
-        if (currentCount <6)
+        if (currentCount < 6)
         {
             System.Random rd = new System.Random();
             int num = rd.Next(0, arrMaker.Length);//产生一个0～2的随机数
-            Instantiate(enemyPrefab, arrMaker[num].transform.position, Quaternion.identity);
+            Tool.Instance.InsObj("Enemy", arrMaker[num].transform.position, Quaternion.identity);
             currentCount++;
         }
-        
+
     }
     public void MinusEnemyCount()
     {

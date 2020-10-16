@@ -31,7 +31,7 @@ public class EnemyCtrl : MonoBehaviour
     {
         if (collision.gameObject.name == "Tank")
         {
-            Tool.InstantiateObj("Effect", collision.transform.position, Quaternion.identity);
+            Tool.Instance.InsObj("Effect", collision.transform.position, Quaternion.identity);
             Destroy(collision.gameObject);
         }
     }
