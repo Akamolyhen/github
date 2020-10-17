@@ -1,17 +1,15 @@
 ﻿<Properties StartupConfiguration="{4A78B847-AB49-9D26-187C-5478D7A54009}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/PackPanel.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/FemCtrl.cs">
     <Files>
-      <File FileName="Assets/scripts/Mainpanel.cs" Line="20" Column="62" />
-      <File FileName="Assets/scripts/PackPanel.cs" Line="69" Column="19" />
+      <File FileName="Assets/scripts/ChanCtrl.cs" Line="27" Column="73" />
+      <File FileName="Assets/scripts/FemCtrl.cs" Line="7" Column="7" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="b1c1be4d-dccd-43f5-894a-b53508471d63" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/aka_captain/Documents/GitHub/test/Unity/20201016/Assets/scripts/PackPanel.cs" relfile="Assets/scripts/PackPanel.cs" line="37" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>
