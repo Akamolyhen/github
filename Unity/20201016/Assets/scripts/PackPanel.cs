@@ -1,5 +1,6 @@
 ﻿ using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,6 +16,9 @@ public class PackPanel : MonoBehaviour
     private Transform content;
     //用于显示批量增加的数量
     private Text txt_count;
+    //记录当前有多少个物体(隐藏的item数量)
+    //private int Txt_count=0;
+    private List<GameObject> list = new List<GameObject>();//对象缓存池
     // Start is called before the first frame update
     void Start()
     {
@@ -33,10 +37,27 @@ public class PackPanel : MonoBehaviour
     }
     private void AddItem()
     {
-        GameObject item = Instantiate(itemPrefab);
-        item.transform.parent = content;
-        item.transform.localPosition = Vector3.zero;
-        item.transform.localScale = Vector3.one;//= new Vector3(0,0,0)
+        if(list.Count==0)
+        {
+            GameObject item = Instantiate(itemPrefab);
+            item.transform.SetParent(content, false);
+        }
+        else
+        {
+            //for(int i=0;i<content.childCount;i++)
+            //{
+            //    if(!content.GetChild(i).gameObject.activeInHierarchy)
+            //    {
+            //        content.GetChild(i).gameObject.SetActive(true);
+            //        Txt_count--;
+            //        break;
+            //    }
+            //}//通过循环去获得被隐藏的物体
+            list[0].SetActive(true);
+            list.Remove(list[0]);
+
+        }
+        
     }
     private void MinusItem()
     {
@@ -48,6 +69,8 @@ public class PackPanel : MonoBehaviour
                 if(go.activeInHierarchy)
                 {
                     go.SetActive(false);
+                    //Txt_count++;
+                    list.Add(go);
                     break;
                 }
             }
@@ -75,7 +98,8 @@ public class PackPanel : MonoBehaviour
                 if (go.activeInHierarchy)
                 {
                     go.SetActive(false);
-                    
+                    //Txt_count++;
+                    list.Add(go);
                 }
             }
         }

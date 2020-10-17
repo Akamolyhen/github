@@ -11,8 +11,8 @@ public class Mainpanel : MonoBehaviour
     
     void Start()
     {
-        btn_Change =this.transform.FindChild("Btn_Change").GetComponent<Button>();
-        img_logo = this.transform.FindChild("Img_Logo").GetComponent<Image>();
+        btn_Change =this.transform.Find("Btn_Change").GetComponent<Button>();
+        img_logo = this.transform.Find("Img_Logo").GetComponent<Image>();
         btn_Change.onClick.AddListener(ChangeImg);
     }
     private void ChangeImg()

@@ -2,14 +2,16 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/PackPanel.cs">
     <Files>
       <File FileName="Assets/scripts/Mainpanel.cs" Line="20" Column="62" />
-      <File FileName="Assets/scripts/PackPanel.cs" Line="1" Column="1" />
+      <File FileName="Assets/scripts/PackPanel.cs" Line="69" Column="19" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="1030f743-e7d3-489a-84b2-0fcb1c66a412" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="b1c1be4d-dccd-43f5-894a-b53508471d63" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/aka_captain/Documents/GitHub/test/Unity/20201016/Assets/scripts/PackPanel.cs" relfile="Assets/scripts/PackPanel.cs" line="37" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>
