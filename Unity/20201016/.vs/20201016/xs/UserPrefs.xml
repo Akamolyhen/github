@@ -1,9 +1,7 @@
 ﻿<Properties StartupConfiguration="{4A78B847-AB49-9D26-187C-5478D7A54009}|">
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/SpiderCtrl.cs">
     <Files>
-      <File FileName="Assets/scripts/ChanCtrl.cs" Line="27" Column="73" />
-      <File FileName="Assets/scripts/FemCtrl.cs" Line="36" Column="53" />
-      <File FileName="Assets/scripts/SpiderCtrl.cs" Line="7" Column="12" />
+      <File FileName="Assets/scripts/SpiderCtrl.cs" Line="68" Column="38" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
