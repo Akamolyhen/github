@@ -73,6 +73,7 @@
     <Compile Include="Assets\scripts\FemCtrl.cs" />
     <Compile Include="Assets\scripts\Mainpanel.cs" />
     <Compile Include="Assets\scripts\PackPanel.cs" />
+    <Compile Include="Assets\scripts\SpiderCtrl.cs" />
     <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_fuku.shader" />
     <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_akarami_blend.shader" />
     <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_hair_ds.shader" />
