@@ -36,6 +36,15 @@ public class FemCtrl : MonoBehaviour
                 ani.SetTrigger("Magic_Helix_Spell");
             }
         }
+        //通过normalizedTime动画播放时间
+        //if(aniInfo.IsName("Shot_Straight")&&(aniInfo.normalizedTime>0.3f&& aniInfo.normalizedTime <0.7f))
+        //{
+        //    if (Input.GetKeyDown(KeyCode.K))
+        //    {
+        //        ani.SetTrigger("Magic_Helix_Spell");
+        //    }
+        //}
+        CanDying();
     }
     void MagicStart()
     {
@@ -44,5 +53,12 @@ public class FemCtrl : MonoBehaviour
     void MagicEnd()
     {
         IsCanSkill = false;
+    }
+    private void CanDying()
+    {
+        if(Input.GetKeyDown(KeyCode.D))
+        {
+            ani.SetTrigger("Dying");
+        }
     }
 }
