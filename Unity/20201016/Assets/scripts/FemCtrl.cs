@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FemCtrl : MonoBehaviour
 {
+    //反向动力学
+    public Transform apple;
     private Animator ani;
     //标志是否可以接连招
     private bool IsCanSkill = false;

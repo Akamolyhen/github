@@ -1,15 +1,20 @@
 ﻿<Properties StartupConfiguration="{4A78B847-AB49-9D26-187C-5478D7A54009}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/FemCtrl.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/PackPanel.cs">
     <Files>
-      <File FileName="Assets/scripts/SpiderCtrl.cs" Line="81" Column="54" />
-      <File FileName="Assets/scripts/FemCtrl.cs" Line="1" Column="1" />
+      <File FileName="Assets/scripts/SpiderCtrl.cs" Line="81" Column="55" />
+      <File FileName="Assets/scripts/FemCtrl.cs" />
+      <File FileName="Assets/scripts/IKCtrl.cs" Line="42" Column="63" />
+      <File FileName="Assets/scripts/ChanCtrl.cs" Line="30" Column="12" />
+      <File FileName="Assets/scripts/PackPanel.cs" Line="26" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="fbe925a1-9bee-4775-9682-629b4d44c9ac" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="0cb474e4-62be-4674-a856-0b8c903d3fb2" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/aka_captain/Documents/GitHub/test/Unity/20201016/Assets/scripts/ChanCtrl.cs" relfile="Assets/scripts/ChanCtrl.cs" line="31" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>
