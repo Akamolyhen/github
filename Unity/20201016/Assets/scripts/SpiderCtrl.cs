@@ -78,7 +78,7 @@ public class SpiderCtrl : MonoBehaviour
                 {
                     this.transform.LookAt(Enemy.transform.position);
                     //延时销毁
-                    Invoke(nameof(EnemyDestroy), 1f);
+                    Invoke(nameof(EnemyDestroy), 1f); 
                 }
                
             }
