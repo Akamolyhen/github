@@ -1,12 +1,19 @@
 ﻿<Properties StartupConfiguration="{646D609C-244F-D9F5-6CCA-FDF884A587E0}|">
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/HeroCtrl.cs">
     <Files>
-      <File FileName="Assets/Scripts/HeroCtrl.cs" Line="36" Column="51" />
+      <File FileName="Assets/Scripts/HeroCtrl.cs" Line="96" Column="43" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="20201020" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="895f0309-b626-401d-9345-15d98cc2c19b" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="162f31dd-abf3-4cfd-905f-05251994bc0b" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -31,7 +31,7 @@ public class HeroCtrl : MonoBehaviour
         
         
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter(Collision collision)
     {
         //Debug.Log(collision.gameObject.name);
         if (collision.gameObject.name == "Ground")
@@ -76,7 +76,7 @@ public class HeroCtrl : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space)&&isGround&&!isJump)
         {
             isJump = true;
-            GetComponent<Rigidbody2D>().AddForce(Vector3.up * Jspeed);
+            GetComponent<Rigidbody>().AddForce(Vector3.up * Jspeed);
             Jumpcount--;
             m_jump = false;
         }
@@ -93,7 +93,7 @@ public class HeroCtrl : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.W) && (Jumpcount > 0))
                 {
                     isJump = true;
-                    GetComponent<Rigidbody2D>().AddForce(Vector3.up * Jspeed2);
+                    GetComponent<Rigidbody>().AddForce(Vector3.up * Jspeed2);
                     Jumpcount--;
 
                 }
