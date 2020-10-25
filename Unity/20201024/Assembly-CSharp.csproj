@@ -141,6 +141,7 @@
     <Compile Include="Assets\EasyTouchBundle\EasyTouchControls\Plugins\ETCJoystick.cs" />
     <Compile Include="Assets\EasyTouchBundle\EasyTouchControls\Plugins\ETCTouchPad.cs" />
     <Compile Include="Assets\EasyTouchCtrl.cs" />
+    <Compile Include="Assets\MoveCamera.cs" />
     <None Include="Assets\EasyTouchBundle\Readme.txt" />
     <None Include="Assets\EasyTouchBundle\EasyTouchControls\Issues in button behavior (MAC).txt" />
     <None Include="Assets\EasyTouchBundle\EasyTouch\_Documentation\How to migrate from EasyTouch 4.X.txt" />
