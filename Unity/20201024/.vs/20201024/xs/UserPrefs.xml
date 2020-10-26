@@ -3,7 +3,7 @@
     <Files>
       <File FileName="Assets/EasyTouchCtrl.cs" Line="49" Column="8" />
       <File FileName="Assets/CubeTap.cs" Line="22" Column="9" />
-      <File FileName="Assets/MoveCamera.cs" Line="1" Column="1" />
+      <File FileName="Assets/MoveCamera.cs" Line="22" Column="93" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
