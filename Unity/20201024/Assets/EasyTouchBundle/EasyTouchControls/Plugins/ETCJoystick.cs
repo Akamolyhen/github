@@ -738,9 +738,17 @@ public class ETCJoystick : ETCBase,IPointerEnterHandler,IDragHandler, IBeginDrag
 	}
 	#endregion
 
-
+	Playerctrl playerctrl = null;
 	private void DoTurnAndMove(){
-
+		if(playerctrl==null)
+        {
+			playerctrl = GameObject.FindGameObjectWithTag("Player").GetComponent<Playerctrl>();
+        }
+		if(!playerctrl.isCanMove)
+        {
+			
+			return;
+        }
 		float angle =Mathf.Atan2( axisX.axisValue,axisY.axisValue ) * Mathf.Rad2Deg;
 		float speed = tmMoveCurve.Evaluate( new Vector2(axisX.axisValue,axisY.axisValue).magnitude) * tmSpeed;
 

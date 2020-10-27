@@ -142,13 +142,32 @@
     <Compile Include="Assets\EasyTouchBundle\EasyTouchControls\Plugins\ETCTouchPad.cs" />
     <Compile Include="Assets\EasyTouchCtrl.cs" />
     <Compile Include="Assets\MoveCamera.cs" />
+    <Compile Include="Assets\Playerctrl.cs" />
+    <Compile Include="Assets\UnityChan\Scripts\CameraController.cs" />
+    <Compile Include="Assets\UnityChan\Scripts\FaceUpdate.cs" />
+    <Compile Include="Assets\UnityChan\Scripts\IdleChanger.cs" />
+    <Compile Include="Assets\UnityChan\Scripts\SceneLoader.cs" />
+    <Compile Include="Assets\UnityChan\Scripts\ThirdPersonCamera.cs" />
+    <Compile Include="Assets\UnityChan\Scripts\UnityChanControlScriptWithRgidBody.cs" />
+    <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_fuku.shader" />
     <None Include="Assets\EasyTouchBundle\Readme.txt" />
+    <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_akarami_blend.shader" />
     <None Include="Assets\EasyTouchBundle\EasyTouchControls\Issues in button behavior (MAC).txt" />
+    <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_hair_ds.shader" />
+    <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_hada.shader" />
     <None Include="Assets\EasyTouchBundle\EasyTouch\_Documentation\How to migrate from EasyTouch 4.X.txt" />
+    <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_fuku_ds.shader" />
+    <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_eyelash_blend.shader" />
     <None Include="Assets\EasyTouchBundle\EasyTouchControls\ReleaseNotes.txt" />
     <None Include="Assets\EasyTouchBundle\EasyTouchControls\Documentation\Version 2.0.txt" />
+    <None Include="Assets\UnityChan\license.txt" />
     <None Include="Assets\EasyTouchBundle\EasyTouch\How to migrate from EasyTouch 4.X.txt" />
+    <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_hada_blend.shader" />
+    <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_eye.shader" />
+    <None Include="Assets\UnityChan\Stage\Shader\AlphaMask.shader" />
+    <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_hair.shader" />
     <None Include="Assets\EasyTouchBundle\EasyTouch\RealseNotes.txt" />
+    <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_eye_blend.shader" />
     <Reference Include="UnityEngine">
       <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
