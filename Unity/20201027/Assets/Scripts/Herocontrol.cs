@@ -5,14 +5,12 @@ using UnityEngine.UIElements;
 
 public class Herocontrol : MonoBehaviour
 {
+    //角色是否已经死亡
+    private bool isDie = false;
     private Animator ani;
     private float movespeed = 10f;
     private float Jspeed = 800f;private float Jspeed2 =900f;
-    private enum E_Direction
-    {
-        Left,
-        Right
-    }
+   
     private E_Direction dir = E_Direction.Left;
     private int Jumpcount = 2;
     private bool isGround = true;
@@ -20,9 +18,11 @@ public class Herocontrol : MonoBehaviour
     private bool m_jump = true;
     //当前动画层播放信息
     private AnimatorStateInfo info;
+    private EnemyManager enemyMgr;
     // Start is called before the first frame update
     void Start()
     {
+        enemyMgr = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
         ani = GetComponent<Animator>();
         
     }
@@ -30,6 +30,10 @@ public class Herocontrol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(isDie)
+        {
+            return;
+        }
         info = ani.GetCurrentAnimatorStateInfo(0);
         if(info.IsName("Attack"))
         {
@@ -41,7 +45,7 @@ public class Herocontrol : MonoBehaviour
     }
     private void Move()
     {
-        Debug.Log(transform.position.x);
+       
 
         if (JudgeMove(transform.position))
         {
@@ -114,12 +118,18 @@ public class Herocontrol : MonoBehaviour
             isGround = true;
             Jumpcount = 2;
         }
+        if(collision.gameObject.tag=="Enemy")
+        {
+            ani.SetTrigger("Die");
+            isDie = true;
+        }
     }
     private void Attack()
     {
         if(Input.GetMouseButtonDown(0))
         {
             ani.SetTrigger("Attack");
+            JudgeTargetEnemy();
         }
     }
     //-32~32
@@ -131,5 +141,23 @@ public class Herocontrol : MonoBehaviour
         }
         return false; 
     }
-    
+    private void JudgeTargetEnemy()
+    {
+        List<GameObject> listEnemys = enemyMgr.ListAllEnemy;
+        for (int i = 0; i < listEnemys.Count; i++)
+        {
+            float distance = Vector3.Distance(transform.position, new Vector3(listEnemys[i].transform.position.x, transform.position.y, listEnemys[i].transform.position.z));
+            if(distance<=10)
+            {
+                Vector3 v = Vector3.Cross(transform.position, listEnemys[i].transform.position);
+                if((v.z<0&&dir==E_Direction.Left)||(v.z>0&&dir==E_Direction.Right))
+                {
+                    GameObject targetEnemy = listEnemys[i];
+                    enemyMgr.RemoveEnemy(targetEnemy);
+                    Destroy(targetEnemy);
+                }
+            }
+        }
+    }
+
 }
