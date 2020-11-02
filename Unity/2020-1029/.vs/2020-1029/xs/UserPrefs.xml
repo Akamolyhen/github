@@ -1,0 +1,18 @@
+﻿<Properties StartupConfiguration="{9F882C66-FC13-8DF8-2DC0-A42B342DCEFE}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/NGUI/Scripts/Editor/UIPrefabTool.cs">
+    <Files>
+      <File FileName="Assets/NGUI/Scripts/Internal/NGUITools.cs" Line="58" Column="1" />
+      <File FileName="Assets/NGUI/Scripts/UI/UIInput.cs" />
+      <File FileName="Assets/NGUI/Scripts/UI/UIPanel.cs" Line="903" Column="51" />
+      <File FileName="Assets/NGUI/Scripts/Editor/NGUIEditorTools.cs" Line="1986" Column="1" />
+      <File FileName="Assets/NGUI/Scripts/Editor/UIPrefabTool.cs" Line="941" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="2d364fe1-60ab-4bd5-a4a0-1be2fa356c15" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
