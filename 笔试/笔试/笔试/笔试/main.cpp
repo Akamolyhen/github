@@ -746,35 +746,11 @@ int main()
 */
 #include<bits/stdc++.h>
 using namespace std;
-void findElemnt(int a[],int length)
-{
-    int s=0;
-    int i;
-    int k=0;
-    for(i=0;i<length;i++)
-    {
-        s^=a[i];
-    }
-    int s1=s;
-    int s2=s;
-    while(!(s1&1))
-    {
-        s1=s1>>1;
-        k++;
-    }
-    for(i=0;i<length;i++)
-    {
-        if((a[i]>>k)&1)
-            s^=a[i];
-        
-    }
-    cout<<s<<" "<<(s^s2)<<endl;
-}
-
 int main()
 {
-    int array[]={1,2,2,3,3,4,1,5};
-    int len=sizeof(array)/sizeof(array[0]);
-    findElemnt(array, len);
+    char str[]="hello world";
+    strcpy(str,"hi");
+    cout<<str<<endl;
+    cout<<str[3]<<endl;
     return 0;
 }
