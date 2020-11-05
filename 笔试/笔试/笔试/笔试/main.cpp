@@ -576,7 +576,7 @@ int main()
     int i,j,m,n,tot;
     char ch='A';
     cin>>m>>n;
-    /*for(int i=0;i<m;i++)
+    for(int i=0;i<m;i++)
     for(int j=0;j<n;j++)
     _map[i][j]='0';*/
  /*   memset(_map, '0', sizeof(_map));
@@ -754,30 +754,17 @@ using namespace std;
 //    cout<<str[3]<<endl;
 //    return 0;
 //}
-using namespace std;
- 
-void move(int n,char A,char B,char C);
-int step;
-int main()
-{
-    int n;
-    cout<<"请输入block数n:"<<endl;
-    cin>>n;
-    move(n,'A','B','C');
-    return 0;
+
+void hanoi(char a,char b,char c,int n){
+    if (n==1) cout<<a<<" -> "<<c<<endl;  //直接移动到C柱，输出
+    else {
+        hanoi(a,c,b,n-1);  //把上面n-1个移到B柱
+        cout<<a<<" -> "<<c<<endl;  //输出
+        hanoi(b,a,c,n-1);  //把剩下n-1个从B柱移到C柱
+    }
 }
-void move(int n,char A,char B,char C)
-{
-    if(n==1)
-    {
-        step++;
-        cout<<"["<<step<<"]move 1# from "<<A<<" to "<<C<<endl;
-    }
-    else
-    {
-        move(n-1,A,C,B);
-        cout<<"["<<step<<"]move "<<n<<"# from "<<A<<" to "<<B<<endl;
-        step++;
-        move(n-1,B,A,C);
-    }
+int main(){
+    int n;
+    cin>>n;
+    hanoi('A','B','C',n);
 }
