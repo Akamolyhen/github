@@ -578,8 +578,8 @@ int main()
     cin>>m>>n;
     for(int i=0;i<m;i++)
     for(int j=0;j<n;j++)
-    _map[i][j]='0';*/
- /*   memset(_map, '0', sizeof(_map));
+    _map[i][j]='0';
+  memset(_map, '0', sizeof(_map));
     i=j=tot=0;
     _map[i][j]='A';
     while(tot<n*m-1)
@@ -744,27 +744,55 @@ int main()
     return 0;
 }
 */
-#include<bits/stdc++.h>
-using namespace std;
-//int main()
-//{
-//    char str[]="hello world";
-//    strcpy(str,"hi");
-//    cout<<str<<endl;
-//    cout<<str[3]<<endl;
-//    return 0;
+//#include<bits/stdc++.h>
+//using namespace std;
+////int main()
+////{
+////    char str[]="hello world";
+////    strcpy(str,"hi");
+////    cout<<str<<endl;
+////    cout<<str[3]<<endl;
+////    return 0;
+////}
+//
+//void hanoi(char a,char b,char c,int n){
+//    if (n==1) cout<<a<<" -> "<<c<<endl;  //直接移动到C柱，输出
+//    else {
+//        hanoi(a,c,b,n-1);  //把上面n-1个移到B柱
+//        cout<<a<<" -> "<<c<<endl;  //输出
+//        hanoi(b,a,c,n-1);  //把剩下n-1个从B柱移到C柱
+//    }
 //}
+//int main(){
+//    int n;
+//    cin>>n;
+//    hanoi('A','B','C',n);
+//}
+//
+ #include <iostream>
+ using namespace std;
 
-void hanoi(char a,char b,char c,int n){
-    if (n==1) cout<<a<<" -> "<<c<<endl;  //直接移动到C柱，输出
-    else {
-        hanoi(a,c,b,n-1);  //把上面n-1个移到B柱
-        cout<<a<<" -> "<<c<<endl;  //输出
-        hanoi(b,a,c,n-1);  //把剩下n-1个从B柱移到C柱
-    }
-}
-int main(){
-    int n;
-    cin>>n;
-    hanoi('A','B','C',n);
-}
+ int func1(int a,int b=0)
+ {
+     return a+b;
+ }
+ int sum()
+ {
+     int sum;
+     int* const point1=&sum;
+     int const* point2;
+    
+     
+     int i=1,j=2;
+     for(i,j;i<8,j<11;i=i+2,j=j+2)
+     {
+          sum+=func1(i,j);
+      }
+     return *point1;
+ }
+ int main(int argc, char *argv[])
+ {
+     int ret= sum();
+     cout << ret;
+     return 0;
+ }
